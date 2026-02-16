@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Diamond Pendant - Magnetic Flow Jewelry</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* CSS Variables */
+        :root {
+            --dark-bg: #0a0a0a;
+            --dark-secondary: #1a1a1a;
+            --primary-color: #D4AF37;
+            --secondary-color: #B8860B;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--dark-bg);
+            position: sticky;
+            top: 0;
+            z-index: 40;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        /* Product Gallery */
+        .gallery-main {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            border-radius: 12px;
+            cursor: zoom-in;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-main:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-thumbnail {
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-thumbnail:hover,
+        .gallery-thumbnail.active {
+            border-color: var(--primary-color);
+            transform: scale(1.05);
+        }
+
+        /* Rating Stars */
+        .stars {
+            display: flex;
+            gap: 4px;
+            align-items: center;
+        }
+
+        .star {
+            color: var(--primary-color);
+            font-size: 16px;
+        }
+
+        .star.empty {
+            color: rgba(212, 175, 55, 0.3);
+        }
+
+        /* Review Card */
+        .review-card {
+            background: linear-gradient(135deg, #1a1a1a 0%, var(--dark-secondary) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            border-radius: 12px;
+            padding: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .review-card:hover {
+            border-color: rgba(212, 175, 55, 0.3);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.1);
+        }
+
+        /* Buttons */
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--dark-bg);
+            padding: 14px 32px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-color);
+            padding: 12px 24px;
+            border: 2px solid var(--primary-color);
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary-color);
+            color: var(--dark-bg);
+        }
+
+        /* Sidebar Cart */
+        .cart-sidebar {
+            position: fixed;
+            right: 0;
+            top: 0;
+            width: 420px;
+            height: 100vh;
+            background: linear-gradient(135deg, var(--dark-secondary) 0%, var(--dark-bg) 100%);
+            border-left: 1px solid rgba(212, 175, 55, 0.2);
+            transform: translateX(100%);
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            z-index: 50;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cart-sidebar.active {
+            transform: translateX(0);
+        }
+
+        .cart-header {
+            padding: 24px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-close {
+            background: none;
+            border: none;
+            color: var(--primary-color);
+            font-size: 28px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .cart-close:hover {
+            transform: rotate(90deg);
+            color: var(--secondary-color);
+        }
+
+        .cart-items {
+            flex: 1;
+            overflow-y: auto;
+            padding: 24px;
+        }
+
+        .cart-item {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .cart-item-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .cart-item-details {
+            flex: 1;
+        }
+
+        .cart-item-remove {
+            color: #ef4444;
+            cursor: pointer;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .cart-item-remove:hover {
+            transform: scale(1.2);
+            color: #dc2626;
+        }
+
+        .cart-footer {
+            padding: 24px;
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+            background: rgba(26, 26, 26, 0.5);
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            z-index: 40;
+        }
+
+        .overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* Quantity Input */
+        .quantity-input {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 6px;
+            padding: 4px;
+            width: fit-content;
+        }
+
+        .quantity-btn {
+            background: transparent;
+            border: none;
+            color: var(--primary-color);
+            cursor: pointer;
+            padding: 4px 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .quantity-btn:hover {
+            color: var(--secondary-color);
+            transform: scale(1.2);
+        }
+
+        .quantity-display {
+            width: 30px;
+            text-align: center;
+            color: white;
+        }
+
+        /* Product Options */
+        .option-selector {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .option-item {
+            padding: 10px 16px;
+            border: 2px solid rgba(212, 175, 55, 0.2);
+            background: transparent;
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .option-item:hover {
+            border-color: var(--primary-color);
+        }
+
+        .option-item.selected {
+            background: var(--primary-color);
+            color: var(--dark-bg);
+            border-color: var(--primary-color);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .cart-sidebar {
+                width: 100%;
+                max-width: 400px;
+            }
+
+            .gallery-main {
+                height: 400px;
+            }
+        }
+
+        .spec-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .spec-label {
+            color: #999;
+            font-size: 14px;
+        }
+
+        .spec-value {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .breadcrumb {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .breadcrumb a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--secondary-color);
+        }
+
+        .rating-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, var(--dark-secondary) 100%);
+            padding: 24px;
+            border-radius: 12px;
+            margin-bottom: 24px;
+        }
+
+        .rating-bar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .rating-bar-label {
+            width: 100px;
+            color: #999;
+            font-size: 14px;
+        }
+
+        .rating-bar-fill {
+            flex: 1;
+            height: 8px;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .rating-bar-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 4px;
+        }
+
+        .rating-count {
+            color: #666;
+            font-size: 14px;
+            text-align: right;
+            width: 60px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header id="header" class="shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 md:px-8 py-4 flex items-center justify-between">
+            <div class="text-2xl font-serif font-bold text-white">
+                <a href="index.html" class="hover:text-[var(--primary-color)] transition-colors">Magnetic Flow</a>
+            </div>
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="index.html" class="text-gray-300 hover:text-[var(--primary-color)] transition-colors">Home</a>
+                <a href="#" class="text-gray-300 hover:text-[var(--primary-color)] transition-colors">Shop</a>
+                <a href="#" class="text-gray-300 hover:text-[var(--primary-color)] transition-colors">About</a>
+                <a href="#" class="text-gray-300 hover:text-[var(--primary-color)] transition-colors">Contact</a>
+            </nav>
+            <button id="cartToggleBtn" class="relative p-2">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    class="text-[var(--primary-color)] hover:text-[var(--secondary-color)] transition-colors">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                </svg>
+                <span id="cartCount" class="absolute top-0 right-0 bg-[var(--primary-color)] text-[var(--dark-bg)] text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center hidden">0</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 md:px-8 py-12">
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+            <a href="index.html">Home</a>
+            <span>→</span>
+            <a href="#">Jewelry</a>
+            <span>→</span>
+            <span class="text-white">Luxury Diamond Pendant</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
+            <!-- Gallery Section -->
+            <div>
+                <div class="mb-6">
+                    <img id="mainImage" src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=800&q=80" 
+                        alt="Luxury Diamond Pendant" class="gallery-main">
+                </div>
+                <div class="grid grid-cols-4 gap-3">
+                    <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=150&q=80" 
+                        alt="View 1" class="gallery-thumbnail active" onclick="changeImage(this)">
+                    <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=150&q=80" 
+                        alt="View 2" class="gallery-thumbnail" onclick="changeImage(this)">
+                    <img src="https://images.unsplash.com/photo-1535891435036-2d127474c5ec?w=150&q=80" 
+                        alt="View 3" class="gallery-thumbnail" onclick="changeImage(this)">
+                    <img src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=150&q=80" 
+                        alt="View 4" class="gallery-thumbnail" onclick="changeImage(this)">
+                </div>
+            </div>
+
+            <!-- Product Details Section -->
+            <div>
+                <div class="mb-6">
+                    <span class="text-xs uppercase tracking-[0.3em] text-[var(--primary-color)] font-bold">Premium Collection</span>
+                    <h1 class="text-4xl md:text-5xl font-serif text-white mt-2 mb-4">Luxury Diamond Pendant</h1>
+                </div>
+
+                <!-- Rating -->
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="stars">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                    <span class="text-gray-400">(248 reviews)</span>
+                </div>
+
+                <!-- Price -->
+                <div class="mb-8">
+                    <div class="flex items-baseline gap-4">
+                        <span class="text-4xl font-bold text-[var(--primary-color)]">$12,999</span>
+                        <span class="text-xl text-gray-400 line-through">$15,999</span>
+                        <span class="text-sm bg-[var(--primary-color)] text-[var(--dark-bg)] px-4 py-1 rounded-full font-bold">18% OFF</span>
+                    </div>
+                    <p class="text-gray-400 text-sm mt-2">Inclusive of all taxes</p>
+                </div>
+
+                <!-- Description -->
+                <p class="text-gray-300 leading-relaxed mb-8">
+                    Experience unparalleled elegance with this exquisite luxury diamond pendant, meticulously crafted 
+                    by our master jewelers. Featuring a 2.5 carat certified diamond surrounded by 18k white gold, 
+                    this timeless piece represents the pinnacle of sophistication and refinement.
+                </p>
+
+                <!-- Options -->
+                <div class="mb-8">
+                    <label class="block text-sm uppercase tracking-widest mb-4 text-gray-300">Metal Type</label>
+                    <div class="option-selector">
+                        <button class="option-item selected" onclick="selectOption(this, 'metal')">18K White Gold</button>
+                        <button class="option-item" onclick="selectOption(this, 'metal')">18K Yellow Gold</button>
+                        <button class="option-item" onclick="selectOption(this, 'metal')">18K Rose Gold</button>
+                        <button class="option-item" onclick="selectOption(this, 'metal')">Platinum</button>
+                    </div>
+                </div>
+
+                <div class="mb-8">
+                    <label class="block text-sm uppercase tracking-widest mb-4 text-gray-300">Chain Length</label>
+                    <div class="option-selector">
+                        <button class="option-item selected" onclick="selectOption(this, 'chain')">16 inches</button>
+                        <button class="option-item" onclick="selectOption(this, 'chain')">18 inches</button>
+                        <button class="option-item" onclick="selectOption(this, 'chain')">20 inches</button>
+                    </div>
+                </div>
+
+                <!-- Quantity -->
+                <div class="mb-8">
+                    <label class="block text-sm uppercase tracking-widest mb-4 text-gray-300">Quantity</label>
+                    <div class="quantity-input">
+                        <button class="quantity-btn" onclick="decreaseQuantity()">−</button>
+                        <span class="quantity-display" id="quantityDisplay">1</span>
+                        <button class="quantity-btn" onclick="increaseQuantity()">+</button>
+                    </div>
+                </div>
+
+                <!-- Buttons -->
+                <div class="flex gap-4 mb-8">
+                    <button class="btn-primary flex-1" onclick="addToCart()">Add to Cart</button>
+                    <button class="btn-secondary">♡ Wishlist</button>
+                </div>
+
+                <!-- Specifications -->
+                <div class="bg-[var(--dark-secondary)] p-8 rounded-12px border border-[rgba(212,175,55,0.1)] mb-8">
+                    <h3 class="text-lg font-serif mb-6 text-white">Key Specifications</h3>
+                    <div class="spec-item">
+                        <span class="spec-label">Diamond Carat</span>
+                        <span class="spec-value">2.5 CT</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Diamond Color</span>
+                        <span class="spec-value">D (Colorless)</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Diamond Clarity</span>
+                        <span class="spec-value">VS1</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Metal</span>
+                        <span class="spec-value">18K White Gold</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Certificate</span>
+                        <span class="spec-value">GIA</span>
+                    </div>
+                    <div class="spec-item" style="border-bottom: none;">
+                        <span class="spec-label">Lifetime Warranty</span>
+                        <span class="spec-value">Yes</span>
+                    </div>
+                </div>
+
+                <!-- Trust Badges -->
+                <div class="grid grid-cols-3 gap-4">
+                    <div class="text-center p-4 bg-[rgba(212,175,55,0.05)] rounded-lg">
+                        <div class="text-2xl mb-2">✓</div>
+                        <p class="text-xs text-gray-400">Certified</p>
+                    </div>
+                    <div class="text-center p-4 bg-[rgba(212,175,55,0.05)] rounded-lg">
+                        <div class="text-2xl mb-2">🔒</div>
+                        <p class="text-xs text-gray-400">Secure Payment</p>
+                    </div>
+                    <div class="text-center p-4 bg-[rgba(212,175,55,0.05)] rounded-lg">
+                        <div class="text-2xl mb-2">📦</div>
+                        <p class="text-xs text-gray-400">Free Shipping</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reviews Section -->
+        <section class="mb-16">
+            <div class="mb-12">
+                <h2 class="text-3xl md:text-4xl font-serif text-white mb-8">Customer Reviews</h2>
+
+                <!-- Overall Rating -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                    <div class="rating-section">
+                        <div class="text-5xl font-bold text-[var(--primary-color)] mb-2">4.9</div>
+                        <div class="stars mb-2">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <p class="text-sm text-gray-400">Based on 248 reviews</p>
+                    </div>
+
+                    <div class="rating-section md:col-span-2">
+                        <div class="rating-bar">
+                            <span class="rating-bar-label">5 Stars</span>
+                            <div class="rating-bar-fill">
+                                <div class="rating-bar-progress" style="width: 85%"></div>
+                            </div>
+                            <span class="rating-count">210</span>
+                        </div>
+                        <div class="rating-bar">
+                            <span class="rating-bar-label">4 Stars</span>
+                            <div class="rating-bar-fill">
+                                <div class="rating-bar-progress" style="width: 10%"></div>
+                            </div>
+                            <span class="rating-count">25</span>
+                        </div>
+                        <div class="rating-bar">
+                            <span class="rating-bar-label">3 Stars</span>
+                            <div class="rating-bar-fill">
+                                <div class="rating-bar-progress" style="width: 3%"></div>
+                            </div>
+                            <span class="rating-count">8</span>
+                        </div>
+                        <div class="rating-bar">
+                            <span class="rating-bar-label">2 Stars</span>
+                            <div class="rating-bar-fill">
+                                <div class="rating-bar-progress" style="width: 1%"></div>
+                            </div>
+                            <span class="rating-count">3</span>
+                        </div>
+                        <div class="rating-bar">
+                            <span class="rating-bar-label">1 Star</span>
+                            <div class="rating-bar-fill">
+                                <div class="rating-bar-progress" style="width: 1%"></div>
+                            </div>
+                            <span class="rating-count">2</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Individual Reviews -->
+                <div class="space-y-6">
+                    <!-- Review 1 -->
+                    <div class="review-card">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <div class="flex items-center gap-2 mb-2">
+                                    <span class="font-semibold">Sarah Mitchell</span>
+                                    <span class="text-xs text-gray-500">Verified Purchase</span>
+                                </div>
+                                <div class="stars text-sm">
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                </div>
+                            </div>
+                            <span class="text-xs text-gray-500">2 weeks ago</span>
+                        </div>
+                        <h4 class="font-semibold mb-2">Absolutely Stunning!</h4>
+                        <p class="text-gray-300 text-sm mb-4">
+                            This pendant exceeded all my expectations. The diamond sparkles beautifully, and the craftsmanship 
+                            is impeccable. The presentation was luxurious, and the delivery was secure and on time. I've already 
+                            received multiple compliments on this gorgeous piece.
+                        </p>
+                        <div class="flex gap-4 text-sm">
+                            <button class="text-gray-400 hover:text-[var(--primary-color)]">👍 Helpful (12)</button>
+                            <button class="text-gray-400 hover:text-[var(--primary-color)]">💬 Reply</button>
+                        </div>
+                    </div>
+
+                    <!-- Review 2 -->
+                    <div class="review-card">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <div class="flex items-center gap-2 mb-2">
+                                    <span class="font-semibold">James Anderson</span>
+                                    <span class="text-xs text-gray-500">Verified Purchase</span>
+                                </div>
+                                <div class="stars text-sm">
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                </div>
+                            </div>
+                            <span class="text-xs text-gray-500">1 month ago</span>
+                        </div>
+                        <h4 class="font-semibold mb-2">Perfect Engagement Gift</h4>
+                        <p class="text-gray-300 text-sm mb-4">
+                            I purchased this as an engagement gift for my fiancée, and she absolutely loves it. The quality is 
+                            premium, the packaging is luxurious, and the customer service was exceptional. Worth every penny!
+                        </p>
+                        <div class="flex gap-4 text-sm">
+                            <button class="text-gray-400 hover:text-[var(--primary-color)]">👍 Helpful (8)</button>
+                            <button class="text-gray-400 hover:text-[var(--primary-color)]">💬 Reply</button>
+                        </div>
+                    </div>
+
+                    <!-- Review 3 -->
+                    <div class="review-card">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <div class="flex items-center gap-2 mb-2">
+                                    <span class="font-semibold">Emma Rodriguez</span>
+                                    <span class="text-xs text-gray-500">Verified Purchase</span>
+                                </div>
+                                <div class="stars text-sm">
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="empty star">★</span>
+                                </div>
+                            </div>
+                            <span class="text-xs text-gray-500">3 weeks ago</span>
+                        </div>
+                        <h4 class="font-semibold mb-2">Excellent Quality, Minor Wait</h4>
+                        <p class="text-gray-300 text-sm mb-4">
+                            The pendant is absolutely beautiful and the diamond is brilliant. My only feedback is that shipping 
+                            took a bit longer than expected, but the secure packaging made it worth the wait. Highly recommend!
+                        </p>
+                        <div class="flex gap-4 text-sm">
+                            <button class="text-gray-400 hover:text-[var(--primary-color)]">👍 Helpful (5)</button>
+                            <button class="text-gray-400 hover:text-[var(--primary-color)]">💬 Reply</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Load More Reviews -->
+                <div class="text-center mt-12">
+                    <button class="btn-secondary px-8">Load More Reviews</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Cart Overlay -->
+    <div id="overlay" class="overlay" onclick="closeCart()"></div>
+
+    <!-- Cart Sidebar -->
+    <div id="cartSidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h2 class="text-xl font-serif">Shopping Cart</h2>
+            <button class="cart-close" onclick="closeCart()">×</button>
+        </div>
+
+        <div class="cart-items" id="cartItems">
+            <p class="text-gray-400 text-center py-12">Your cart is empty</p>
+        </div>
+
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Subtotal:</span>
+                <span id="cartSubtotal">$0</span>
+            </div>
+            <div class="cart-total">
+                <span>Shipping:</span>
+                <span id="cartShipping">Free</span>
+            </div>
+            <div class="cart-total mb-6" style="border-top: 1px solid rgba(212,175,55,0.1); padding-top: 16px;">
+                <span>Total:</span>
+                <span id="cartTotal" class="text-[var(--primary-color)] text-xl">$0</span>
+            </div>
+            <button class="btn-primary w-full mb-3">Proceed to Checkout</button>
+            <button class="btn-secondary w-full" onclick="closeCart()">Continue Shopping</button>
+        </div>
+    </div>
+
+    <script>
+        // Cart Management
+        let cart = [];
+        let quantity = 1;
+        let selectedMetal = '18K White Gold';
+        let selectedChain = '16 inches';
+
+        function changeImage(img) {
+            document.querySelectorAll('.gallery-thumbnail').forEach(el => el.classList.remove('active'));
+            img.classList.add('active');
+            document.getElementById('mainImage').src = img.src.replace('w=150', 'w=800');
+        }
+
+        function selectOption(btn, type) {
+            btn.parentElement.querySelectorAll('.option-item').forEach(el => el.classList.remove('selected'));
+            btn.classList.add('selected');
+
+            if (type === 'metal') {
+                selectedMetal = btn.textContent;
+            } else if (type === 'chain') {
+                selectedChain = btn.textContent;
+            }
+        }
+
+        function increaseQuantity() {
+            quantity++;
+            document.getElementById('quantityDisplay').textContent = quantity;
+        }
+
+        function decreaseQuantity() {
+            if (quantity > 1) {
+                quantity--;
+                document.getElementById('quantityDisplay').textContent = quantity;
+            }
+        }
+
+        function addToCart() {
+            const product = {
+                id: Date.now(),
+                name: 'Luxury Diamond Pendant',
+                price: 12999,
+                quantity: quantity,
+                metal: selectedMetal,
+                chain: selectedChain,
+                image: document.getElementById('mainImage').src
+            };
+
+            cart.push(product);
+            console.log('[v0] Product added to cart:', product);
+
+            // Show success feedback
+            const btn = event.target;
+            const originalText = btn.textContent;
+            btn.textContent = 'Added to Cart!';
+            btn.style.backgroundColor = '#10B981';
+            setTimeout(() => {
+                btn.textContent = originalText;
+                btn.style.backgroundColor = '';
+            }, 2000);
+
+            // Update cart display
+            updateCart();
+            openCart();
+        }
+
+        function updateCart() {
+            const cartItemsDiv = document.getElementById('cartItems');
+            const cartCount = document.getElementById('cartCount');
+
+            if (cart.length === 0) {
+                cartItemsDiv.innerHTML = '<p class="text-gray-400 text-center py-12">Your cart is empty</p>';
+                cartCount.classList.add('hidden');
+                document.getElementById('cartSubtotal').textContent = '$0';
+                document.getElementById('cartTotal').textContent = '$0';
+                return;
+            }
+
+            cartCount.classList.remove('hidden');
+            cartCount.textContent = cart.length;
+
+            cartItemsDiv.innerHTML = cart.map(item => `
+                <div class="cart-item">
+                    <img src="${item.image}" alt="${item.name}" class="cart-item-image">
+                    <div class="cart-item-details">
+                        <h4 class="font-semibold text-sm mb-2">${item.name}</h4>
+                        <p class="text-xs text-gray-400 mb-1">${item.metal}</p>
+                        <p class="text-xs text-gray-400 mb-2">${item.chain}</p>
+                        <p class="font-semibold text-[var(--primary-color)]">$${(item.price * item.quantity).toLocaleString()}</p>
+                        <div class="quantity-input mt-2">
+                            <button class="quantity-btn" onclick="updateItemQuantity(${item.id}, -1)">−</button>
+                            <span class="quantity-display">${item.quantity}</span>
+                            <button class="quantity-btn" onclick="updateItemQuantity(${item.id}, 1)">+</button>
+                        </div>
+                    </div>
+                    <span class="cart-item-remove" onclick="removeFromCart(${item.id})">✕</span>
+                </div>
+            `).join('');
+
+            // Calculate totals
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            document.getElementById('cartSubtotal').textContent = '$' + subtotal.toLocaleString();
+            document.getElementById('cartTotal').textContent = '$' + subtotal.toLocaleString();
+        }
+
+        function updateItemQuantity(id, change) {
+            const item = cart.find(p => p.id === id);
+            if (item) {
+                item.quantity += change;
+                if (item.quantity <= 0) {
+                    removeFromCart(id);
+                } else {
+                    updateCart();
+                }
+            }
+        }
+
+        function removeFromCart(id) {
+            cart = cart.filter(item => item.id !== id);
+            console.log('[v0] Product removed from cart, ID:', id);
+            updateCart();
+        }
+
+        function openCart() {
+            document.getElementById('cartSidebar').classList.add('active');
+            document.getElementById('overlay').classList.add('active');
+        }
+
+        function closeCart() {
+            document.getElementById('cartSidebar').classList.remove('active');
+            document.getElementById('overlay').classList.remove('active');
+        }
+
+        document.getElementById('cartToggleBtn').addEventListener('click', openCart);
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.style.backgroundColor = 'rgba(10, 10, 10, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.backgroundColor = 'var(--dark-bg)';
+                header.style.backdropFilter = 'none';
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - Magnetic Flow Jewelry</title>
+    <meta name="description" content="Discover our exclusive collection of luxury jewelry, featuring diamonds, emeralds, rubies, and sapphires crafted in precious metals.">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --primary-color: #D4AF37;
+            --secondary-color: #8F3552;
+            --dark-bg: #0a0a0a;
+            --dark-secondary: #1a1a1a;
+            --light-text: #f5f5f5;
+            --accent-gold: #C9A961;
+        }
+        /* Language Selector */
+        .lang-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .lang-dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: var(--dark-secondary);
+            min-width: 120px;
+            box-shadow: 0 8px 16px rgba(212, 175, 55, 0.2);
+            padding: 8px 0;
+            z-index: 1;
+            border: 1px solid var(--primary-color);
+            border-radius: 4px;
+            top: 100%;
+            margin-top: 8px;
+        }
+
+        .lang-dropdown-content a {
+            color: var(--light-text);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .lang-dropdown-content a:hover {
+            background-color: rgba(212, 175, 55, 0.1);
+            color: var(--primary-color);
+        }
+
+        .lang-dropdown-content a.active {
+            color: var(--primary-color);
+            background-color: rgba(212, 175, 55, 0.1);
+        }
+
+        .lang-dropdown:hover .lang-dropdown-content {
+            display: block;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            font-family: 'Poppins', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--dark-secondary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 4px;
+        }
+
+        /* HEADER & NAVIGATION */
+        header {
+            background-color: var(--dark-bg);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        header nav {
+            max-width: 120rem;
+            margin: 0 auto;
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        #mobileMenuBtn {
+            display: none;
+            text-align: center;
+            transition: color 0.3s ease;
+            padding: 0.5rem;
+        }
+
+        #mobileMenuBtn:hover {
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 1024px) {
+            #mobileMenuBtn {
+                display: block;
+            }
+        }
+
+        .desktop-nav {
+            display: flex;
+            gap: 3rem;
+            font-size: 0.875rem;
+            color: white;
+            font-weight: 300;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            flex: 1;
+        }
+
+        .desktop-nav a {
+            transition: color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .desktop-nav a:hover {
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 1024px) {
+            .desktop-nav {
+                display: none;
+            }
+        }
+
+        .logo-section {
+            flex: 1;
+            text-align: center;
+            z-index: 50;
+        }
+
+        .logo-section a {
+            color: white;
+            font-size: 1.5rem;
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .logo-section a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-right {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 1rem;
+            color: white;
+        }
+
+        .icon-btn {
+            transition: color 0.3s ease;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .icon-btn:hover {
+            color: var(--primary-color);
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -0.25rem;
+            right: -0.25rem;
+            width: 0.5rem;
+            height: 0.5rem;
+            background: #ef4444;
+            border-radius: 50%;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            margin-top: 60px;
+            height: 500px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.3) 100%), url('https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, rgba(143, 53, 82, 0.05) 100%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            z-index: 10;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .hero-content p {
+            font-size: 1.125rem;
+            color: rgba(245, 245, 245, 0.8);
+            margin-bottom: 2rem;
+            font-weight: 300;
+            letter-spacing: 0.08em;
+        }
+
+        .btn-explore {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-weight: 600;
+        }
+
+        .btn-explore:hover {
+            background: var(--primary-color);
+            color: var(--dark-bg);
+            transform: scale(1.02);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* MAIN CONTAINER */
+        .shop-container {
+            max-width: 120rem;
+            margin: 0 auto;
+            padding: 4rem 1.5rem;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 3rem;
+        }
+
+        @media (max-width: 1024px) {
+            .shop-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* FILTER PANEL */
+        .filter-panel {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+
+        .filter-section {
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+            padding: 1.5rem 0;
+        }
+
+        .filter-section:last-child {
+            border-bottom: none;
+        }
+
+        .filter-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--light-text);
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .filter-title:hover {
+            color: var(--primary-color);
+        }
+
+        .filter-toggle {
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .filter-content {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            max-height: 300px;
+            overflow-y: auto;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                max-height: 0;
+            }
+            to {
+                opacity: 1;
+                max-height: 300px;
+            }
+        }
+
+        .filter-option {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 0;
+            cursor: pointer;
+        }
+
+        .filter-option input {
+            cursor: pointer;
+            accent-color: var(--primary-color);
+        }
+
+        .filter-option label {
+            font-size: 0.875rem;
+            color: rgba(245, 245, 245, 0.8);
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .filter-option:hover label {
+            color: var(--primary-color);
+        }
+
+        .price-range-slider {
+            margin-top: 1rem;
+        }
+
+        .price-range-slider input {
+            width: 100%;
+            cursor: pointer;
+            accent-color: var(--primary-color);
+        }
+
+        .price-display {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0.5rem;
+            font-size: 0.8125rem;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        /* PRODUCTS GRID */
+        .products-section {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .products-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+        }
+
+        .products-header h2 {
+            font-size: 1.5rem;
+            letter-spacing: 0.1em;
+        }
+
+        .sort-dropdown {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            background: transparent;
+            color: var(--light-text);
+            font-family: 'Poppins', sans-serif;
+            cursor: pointer;
+            font-size: 0.875rem;
+            transition: all 0.3s ease;
+        }
+
+        .sort-dropdown:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        @media (max-width: 1200px) {
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+
+        /* PRODUCT CARD */
+        .product-card {
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+            position: relative;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        @for $i from 1 to 13 {
+            .product-card:nth-child($i) {
+                animation-delay: calc(0.05s * $i);
+            }
+        }
+
+        .product-image-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 3/4;
+            overflow: hidden;
+            background: linear-gradient(135deg, #1a1a1a 0%, var(--dark-secondary) 100%);
+            margin-bottom: 1rem;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.05);
+        }
+
+        .wishlist-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 40px;
+            height: 40px;
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            z-index: 10;
+        }
+
+        .wishlist-btn:hover {
+            background: rgba(212, 175, 55, 0.2);
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .wishlist-btn.active {
+            background: var(--primary-color);
+            color: var(--dark-bg);
+            border-color: var(--primary-color);
+        }
+
+        .sale-badge {
+            position: absolute;
+            bottom: 1rem;
+            left: 1rem;
+            background: rgba(212, 175, 55, 0.15);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            color: var(--primary-color);
+            padding: 0.35rem 0.75rem;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+            z-index: 10;
+        }
+
+        .quick-view {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 5;
+            cursor: pointer;
+        }
+
+        .product-card:hover .quick-view {
+            opacity: 1;
+        }
+
+        .quick-view-btn {
+            padding: 0.75rem 2rem;
+            background: var(--primary-color);
+            color: var(--dark-bg);
+            border: none;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .quick-view-btn:hover {
+            background: var(--accent-gold);
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            flex: 1;
+        }
+
+        .product-name {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.05em;
+            line-height: 1.4;
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+            font-size: 0.8125rem;
+        }
+
+        .stars {
+            color: var(--primary-color);
+            letter-spacing: 0.2em;
+        }
+
+        .rating-count {
+            color: rgba(245, 245, 245, 0.6);
+        }
+
+        .product-price {
+            display: flex;
+            align-items: baseline;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .price {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .original-price {
+            font-size: 0.875rem;
+            color: rgba(245, 245, 245, 0.5);
+            text-decoration: line-through;
+        }
+
+        .add-to-bag {
+            width: 100%;
+            padding: 0.75rem;
+            background: var(--primary-color);
+            color: var(--dark-bg);
+            border: none;
+            font-size: 0.8125rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .add-to-bag:hover {
+            background: var(--accent-gold);
+            transform: scale(1.02);
+        }
+
+        /* PAGINATION */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.15);
+        }
+
+        .pagination-btn {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            background: transparent;
+            color: var(--light-text);
+            cursor: pointer;
+            font-size: 0.875rem;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 500;
+        }
+
+        .pagination-btn:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .pagination-btn.active {
+            background: var(--primary-color);
+            color: var(--dark-bg);
+            border-color: var(--primary-color);
+        }
+
+        .pagination-dots {
+            color: rgba(212, 175, 55, 0.4);
+            margin: 0 0.25rem;
+        }
+
+        /* MOBILE FILTER BUTTON */
+        #mobileFilterBtn {
+            display: none;
+            position: fixed;
+            bottom: 2rem;
+            right: 1.5rem;
+            width: 56px;
+            height: 56px;
+            background: var(--primary-color);
+            color: var(--dark-bg);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            z-index: 40;
+            box-shadow: 0 8px 24px rgba(212, 175, 55, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        #mobileFilterBtn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 32px rgba(212, 175, 55, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            #mobileFilterBtn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .filter-panel {
+                position: fixed;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                width: 85%;
+                max-width: 320px;
+                background: var(--dark-secondary);
+                z-index: 50;
+                transform: translateX(-100%);
+                overflow-y: auto;
+                transition: transform 0.3s ease;
+                padding: 5rem 1.5rem 2rem;
+                border-right: 1px solid rgba(212, 175, 55, 0.15);
+            }
+
+            .filter-panel.open {
+                transform: translateX(0);
+            }
+
+            .filter-panel.sticky {
+                position: relative;
+                top: auto;
+            }
+
+            #filterOverlay {
+                display: none;
+                position: fixed;
+                inset: 0;
+                background: rgba(0, 0, 0, 0.5);
+                z-index: 40;
+                backdrop-filter: blur(4px);
+            }
+
+            #filterOverlay.active {
+                display: block;
+            }
+        }
+
+        /* LOADING ANIMATION */
+        @keyframes shimmer {
+            0% {
+                background-position: -1000px 0;
+            }
+            100% {
+                background-position: 1000px 0;
+            }
+        }
+
+        .shimmer {
+            background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.1) 50%, transparent 100%);
+            background-size: 1000px 100%;
+            animation: shimmer 2s infinite;
+        }
+
+        /* CLOSE BUTTON FOR MOBILE MENU */
+        .filter-close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.3s ease;
+            z-index: 60;
+        }
+
+        .filter-close-btn:hover {
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .filter-close-btn {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<!-- HEADER & NAVIGATION -->
+<header id="header"
+        class="fixed top-0 left-0 right-0 z-50 bg-var(--dark-bg) transition-all duration-300 border-b border-[rgba(212,175,55,0.1)]">
+    <nav class="max-w-7xl mx-auto px-4 md:px-6 py-5 flex items-center justify-between">
+
+        <!-- Mobile Menu Button -->
+        <button id="mobileMenuBtn"
+                class="lg:hidden text-white hover:text-[var(--primary-color)] transition-colors z-50 relative p-2">
+            <span class="sr-only">Menu</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+        </button>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden lg:flex gap-12 text-sm text-white font-light tracking-wide uppercase flex-1">
+            <a href="#new-in" class="hover:text-[var(--primary-color)] transition-colors" data-en="New In"
+               data-es="Nuevos">New In</a>
+            <a href="#signature" class="hover:text-[var(--primary-color)] transition-colors" data-en="Collections"
+               data-es="Colecciones">Collections</a>
+            <a href="#bespoke" class="hover:text-[var(--primary-color)] transition-colors" data-en="Bespoke"
+               data-es="Personalizado">Bespoke</a>
+            <a href="#about" class="hover:text-[var(--primary-color)] transition-colors" data-en="About"
+               data-es="Acerca de">About</a>
+        </div>
+
+        <!-- Logo -->
+        <div class="flex-1 text-center z-50">
+            <a href="#"
+               class="text-white text-2xl md:text-3xl font-normal tracking-[0.2em] font-serif uppercase relative z-50 transition-colors duration-300 hover:text-[var(--primary-color)]">
+                <img src="logo-removebg-preview.png" alt="" width="300px" class="mx-auto">
+            </a>
+        </div>
+
+        <!-- Right Navigation -->
+        <div class="flex-1 flex items-center justify-end gap-4 md:gap-6 text-white">
+            <!-- Language Selector -->
+            <div class="lang-dropdown">
+                <button id="langBtn"
+                        class="flex items-center gap-1 text-xs md:text-sm hover:text-[var(--primary-color)] transition-colors uppercase tracking-widest">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                         stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path
+                                d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                        </path>
+                    </svg>
+                    <span id="currentLang" data-en="EN" data-es="ES">EN</span>
+                </button>
+                <div class="lang-dropdown-content">
+                    <a href="#" class="lang-option active" data-lang="en" data-en="English"
+                       data-es="Inglés">English</a>
+                    <a href="#" class="lang-option" data-lang="es" data-en="Español" data-es="Español">Español</a>
+                </div>
+            </div>
+
+            <!-- Search Button -->
+            <button class="hover:text-[var(--primary-color)] transition-colors hidden sm:block p-2">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                     stroke-width="1.5">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.35-4.35"></path>
+                </svg>
+            </button>
+
+            <!-- Cart Button -->
+            <button class="hover:text-[var(--primary-color)] transition-colors relative p-2">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                     stroke-width="1.5">
+                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                </svg>
+                <span class="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full"></span>
+            </button>
+        </div>
+    </nav>
+</header>
+
+<!-- MOBILE MENU OVERLAY -->
+<div id="mobileMenuOverlay"
+     class="fixed inset-0 bg-black/60 z-40 hidden opacity-0 transition-opacity duration-300 backdrop-blur-sm"></div>
+
+<!-- MOBILE MENU -->
+<div id="mobileMenu"
+     class="fixed top-0 left-0 bottom-0 w-[85%] max-w-sm bg-[var(--dark-secondary)] z-50 transform -translate-x-full shadow-2xl flex flex-col border-r border-[rgba(212,175,55,0.2)]">
+    <div class="p-6 pt-24 flex-1 overflow-y-auto">
+        <nav class="flex flex-col space-y-8">
+            <div class="space-y-4">
+                    <span class="text-xs font-bold text-gray-500 uppercase tracking-widest" data-en="Collections"
+                          data-es="Colecciones">Collections</span>
+                <a href="#new-in" class="mobile-link block text-2xl font-serif text-white" data-en="New In"
+                   data-es="Nuevos">New In</a>
+                <a href="#signature" class="mobile-link block text-2xl font-serif text-white" data-en="Collections"
+                   data-es="Colecciones">Collections</a>
+                <a href="#bespoke" class="mobile-link block text-2xl font-serif text-white" data-en="Bespoke"
+                   data-es="Personalizado">Bespoke</a>
+            </div>
+
+            <hr class="border-[rgba(212,175,55,0.1)] my-4">
+
+            <div class="space-y-4">
+                    <span class="text-xs font-bold text-gray-500 uppercase tracking-widest" data-en="Categories"
+                          data-es="Categorías">Categories</span>
+                <a href="#" class="mobile-link block text-lg font-light text-gray-300" data-en="Jewelry"
+                   data-es="Joyas">Jewelry</a>
+                <a href="#" class="mobile-link block text-lg font-light text-gray-300" data-en="Watches"
+                   data-es="Relojes">Watches</a>
+                <a href="#" class="mobile-link block text-lg font-light text-gray-300" data-en="Decorations"
+                   data-es="Decoraciones">Decorations</a>
+                <a href="#" class="mobile-link block text-lg font-light text-gray-300" data-en="Gifts"
+                   data-es="Regalos">Gifts</a>
+            </div>
+        </nav>
+    </div>
+    <div class="p-6 bg-[#000000] border-t border-[rgba(212,175,55,0.1)]">
+        <div class="flex flex-col gap-4">
+            <a href="#"
+               class="text-sm text-gray-400 hover:text-[var(--primary-color)] transition-colors flex items-center gap-2"
+               data-en="Log In / Register" data-es="Iniciar Sesión / Registrarse">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                Log In / Register
+            </a>
+            <a href="#" class="text-sm text-gray-400 hover:text-[var(--primary-color)] transition-colors"
+               data-en="Customer Care" data-es="Servicio al Cliente">Customer Care</a>
+        </div>
+    </div>
+</div>
+
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Timeless Elegance</h1>
+            <p>Discover Our Exclusive Luxury Collection</p>
+            <a href="#shop-section" class="btn-explore">Explore Collection</a>
+        </div>
+    </section>
+
+    <!-- MAIN SHOP CONTAINER -->
+    <div class="shop-container" id="shop-section">
+        <!-- FILTER PANEL -->
+        <aside class="filter-panel" id="filterPanel">
+            <button class="filter-close-btn" id="filterCloseBtn">&times;</button>
+
+            <!-- Category Filter -->
+            <div class="filter-section">
+                <div class="filter-title" onclick="toggleFilter(this)">
+                    <span>Category</span>
+                    <span class="filter-toggle">▼</span>
+                </div>
+                <div class="filter-content">
+                    <div class="filter-option">
+                        <input type="checkbox" id="cat-rings" value="rings">
+                        <label for="cat-rings">Rings</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="cat-necklaces" value="necklaces">
+                        <label for="cat-necklaces">Necklaces</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="cat-earrings" value="earrings">
+                        <label for="cat-earrings">Earrings</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="cat-bracelets" value="bracelets">
+                        <label for="cat-bracelets">Bracelets</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Price Range Filter -->
+            <div class="filter-section">
+                <div class="filter-title" onclick="toggleFilter(this)">
+                    <span>Price Range</span>
+                    <span class="filter-toggle">▼</span>
+                </div>
+                <div class="filter-content">
+                    <div class="price-range-slider">
+                        <input type="range" id="priceRange" min="1000" max="50000" value="50000" step="1000">
+                        <div class="price-display">
+                            <span>$1,000</span>
+                            <span id="priceValue">$50,000+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Metal Type Filter -->
+            <div class="filter-section">
+                <div class="filter-title" onclick="toggleFilter(this)">
+                    <span>Metal Type</span>
+                    <span class="filter-toggle">▼</span>
+                </div>
+                <div class="filter-content">
+                    <div class="filter-option">
+                        <input type="checkbox" id="metal-gold" value="gold">
+                        <label for="metal-gold">18K Gold</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="metal-whitegold" value="white-gold">
+                        <label for="metal-whitegold">18K White Gold</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="metal-platinum" value="platinum">
+                        <label for="metal-platinum">Platinum</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gemstone Filter -->
+            <div class="filter-section">
+                <div class="filter-title" onclick="toggleFilter(this)">
+                    <span>Gemstone</span>
+                    <span class="filter-toggle">▼</span>
+                </div>
+                <div class="filter-content">
+                    <div class="filter-option">
+                        <input type="checkbox" id="gem-diamond" value="diamond">
+                        <label for="gem-diamond">Diamond</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="gem-emerald" value="emerald">
+                        <label for="gem-emerald">Emerald</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="gem-ruby" value="ruby">
+                        <label for="gem-ruby">Ruby</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="gem-sapphire" value="sapphire">
+                        <label for="gem-sapphire">Sapphire</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Occasion Filter -->
+            <div class="filter-section">
+                <div class="filter-title" onclick="toggleFilter(this)">
+                    <span>Occasion</span>
+                    <span class="filter-toggle">▼</span>
+                </div>
+                <div class="filter-content">
+                    <div class="filter-option">
+                        <input type="checkbox" id="occ-wedding" value="wedding">
+                        <label for="occ-wedding">Wedding</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="occ-anniversary" value="anniversary">
+                        <label for="occ-anniversary">Anniversary</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="occ-engagement" value="engagement">
+                        <label for="occ-engagement">Engagement</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="occ-gift" value="gift">
+                        <label for="occ-gift">Gift</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Availability Filter -->
+            <div class="filter-section">
+                <div class="filter-title" onclick="toggleFilter(this)">
+                    <span>Availability</span>
+                    <span class="filter-toggle">▼</span>
+                </div>
+                <div class="filter-content">
+                    <div class="filter-option">
+                        <input type="checkbox" id="avail-stock" value="in-stock">
+                        <label for="avail-stock">In Stock</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="avail-preorder" value="pre-order">
+                        <label for="avail-preorder">Pre-Order</label>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- PRODUCTS SECTION -->
+        <section class="products-section">
+            <div class="products-header">
+                <h2>Our Collection</h2>
+                <select class="sort-dropdown" onchange="sortProducts(this.value)">
+                    <option value="newest">Newest</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="best-sellers">Best Sellers</option>
+                </select>
+            </div>
+
+            <!-- PRODUCTS GRID -->
+            <div class="products-grid" id="productsGrid">
+                <!-- Product cards will be generated here -->
+            </div>
+
+            <!-- PAGINATION -->
+            <div class="pagination" id="pagination">
+                <!-- Pagination will be generated here -->
+            </div>
+        </section>
+    </div>
+
+    <!-- MOBILE FILTER BUTTON -->
+    <button id="mobileFilterBtn">☰</button>
+
+    <!-- FILTER OVERLAY -->
+    <div id="filterOverlay"></div>
+
+    <script>
+        // Product Data
+        const allProducts = [
+            { id: 1, name: "Luminous Diamond Pendant", price: 12999, original: 15999, image: "images/1.jpeg", rating: 5, reviews: 248, sale: true, category: "necklaces", metal: "white-gold", gemstone: "diamond", occasion: "anniversary" },
+            { id: 2, name: "Emerald Elegance Ring", price: 8499, original: null, image: "images/15.jpeg", rating: 5, reviews: 165, sale: false, category: "rings", metal: "gold", gemstone: "emerald", occasion: "engagement" },
+            { id: 3, name: "Royal Ruby Bracelet", price: 9999, original: 12500, image: "images/16.jpeg", rating: 4, reviews: 89, sale: true, category: "bracelets", metal: "platinum", gemstone: "ruby", occasion: "wedding" },
+            { id: 4, name: "Sapphire Stud Earrings", price: 5999, original: null, image: "images/10.jpeg", rating: 5, reviews: 312, sale: false, category: "earrings", metal: "white-gold", gemstone: "sapphire", occasion: "gift" },
+            { id: 5, name: "Classic Gold Ring", price: 7499, original: 8999, image: "images/9.jpeg", rating: 5, reviews: 203, sale: true, category: "rings", metal: "gold", gemstone: "diamond", occasion: "wedding" },
+            { id: 6, name: "Pearl Luxury Necklace", price: 6999, original: null, image: "images/7.jpeg", rating: 4, reviews: 156, sale: false, category: "necklaces", metal: "white-gold", gemstone: "diamond", occasion: "anniversary" },
+            { id: 7, name: "Diamond Statement Earrings", price: 11999, original: 14999, image: "images/6.jpeg", rating: 5, reviews: 421, sale: true, category: "earrings", metal: "platinum", gemstone: "diamond", occasion: "gift" },
+            { id: 8, name: "Emerald Bracelet Design", price: 8499, original: null, image: "images/8.jpeg", rating: 4, reviews: 132, sale: false, category: "bracelets", metal: "gold", gemstone: "emerald", occasion: "anniversary" },
+            { id: 9, name: "Platinum Diamond Ring", price: 16999, original: 19999, image: "images/9.jpeg", rating: 5, reviews: 567, sale: true, category: "rings", metal: "platinum", gemstone: "diamond", occasion: "engagement" },
+            { id: 10, name: "Ruby Pendant Gold", price: 9499, original: null, image: "images/6.jpeg", rating: 5, reviews: 178, sale: false, category: "necklaces", metal: "gold", gemstone: "ruby", occasion: "wedding" },
+            { id: 11, name: "Sapphire Ring Platinum", price: 13499, original: 16499, image: "images/17.jpeg", rating: 4, reviews: 234, sale: true, category: "rings", metal: "platinum", gemstone: "sapphire", occasion: "engagement" },
+            { id: 12, name: "Diamond & Pearl Combo", price: 7999, original: null, image: "images/18.jpeg", rating: 5, reviews: 289, sale: false, category: "bracelets", metal: "white-gold", gemstone: "diamond", occasion: "gift" },
+        ];
+
+        let currentSort = "newest";
+        let currentPage = 1;
+        const itemsPerPage = 9;
+
+        // Render Products
+        function renderProducts(products = allProducts) {
+            const grid = document.getElementById("productsGrid");
+            grid.innerHTML = "";
+
+            const start = (currentPage - 1) * itemsPerPage;
+            const end = start + itemsPerPage;
+            const paginatedProducts = products.slice(start, end);
+
+            paginatedProducts.forEach((product) => {
+                const productCard = document.createElement("div");
+                productCard.className = "product-card";
+                productCard.innerHTML = `
+                    <div class="product-image-container">
+                        <img src="${product.image}" alt="${product.name}" class="product-image">
+                        <button class="wishlist-btn" onclick="toggleWishlist(this)">♡</button>
+                        ${product.sale ? `<span class="sale-badge">Sale</span>` : ""}
+                        <div class="quick-view" onclick="openQuickView(${product.id})">
+                            <button class="quick-view-btn">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">${product.name}</h3>
+                        <div class="product-rating">
+                            <span class="stars">${"★".repeat(product.rating)}${"☆".repeat(5 - product.rating)}</span>
+                            <span class="rating-count">${product.reviews} reviews</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price">$${product.price.toLocaleString()}</span>
+                            ${product.original ? `<span class="original-price">$${product.original.toLocaleString()}</span>` : ""}
+                        </div>
+                        <button class="add-to-bag" onclick="addToCart(${product.id})">Add to Bag</button>
+                    </div>
+                `;
+                grid.appendChild(productCard);
+            });
+
+            renderPagination(products.length);
+        }
+
+        // Render Pagination
+        function renderPagination(totalProducts) {
+            const pagination = document.getElementById("pagination");
+            pagination.innerHTML = "";
+            const totalPages = Math.ceil(totalProducts / itemsPerPage);
+
+            const prevBtn = document.createElement("button");
+            prevBtn.className = "pagination-btn";
+            prevBtn.textContent = "←";
+            prevBtn.onclick = () => goToPage(Math.max(1, currentPage - 1));
+            pagination.appendChild(prevBtn);
+
+            for (let i = 1; i <= totalPages; i++) {
+                if (i === 1 || i === totalPages || (i >= currentPage - 1 && i <= currentPage + 1)) {
+                    const btn = document.createElement("button");
+                    btn.className = `pagination-btn ${i === currentPage ? "active" : ""}`;
+                    btn.textContent = i;
+                    btn.onclick = () => goToPage(i);
+                    pagination.appendChild(btn);
+                } else if (i === currentPage - 2 || i === currentPage + 2) {
+                    const dots = document.createElement("span");
+                    dots.className = "pagination-dots";
+                    dots.textContent = "...";
+                    pagination.appendChild(dots);
+                }
+            }
+
+            const nextBtn = document.createElement("button");
+            nextBtn.className = "pagination-btn";
+            nextBtn.textContent = "→";
+            nextBtn.onclick = () => goToPage(Math.min(totalPages, currentPage + 1));
+            pagination.appendChild(nextBtn);
+        }
+
+        // Filter Toggle
+        function toggleFilter(element) {
+            const toggle = element.querySelector(".filter-toggle");
+            const content = element.nextElementSibling;
+            toggle.style.transform = toggle.style.transform === "rotate(180deg)" ? "rotate(0)" : "rotate(180deg)";
+            content.style.display = content.style.display === "none" ? "flex" : "none";
+        }
+
+        // Sort Products
+        function sortProducts(value) {
+            currentSort = value;
+            currentPage = 1;
+            let sorted = [...allProducts];
+
+            if (value === "price-low") sorted.sort((a, b) => a.price - b.price);
+            else if (value === "price-high") sorted.sort((a, b) => b.price - a.price);
+            else if (value === "best-sellers") sorted.sort((a, b) => b.reviews - a.reviews);
+
+            renderProducts(sorted);
+        }
+
+        // Go to Page
+        function goToPage(page) {
+            currentPage = page;
+            renderProducts();
+            document.querySelector(".products-grid").scrollIntoView({ behavior: "smooth" });
+        }
+
+        // Toggle Wishlist
+        function toggleWishlist(btn) {
+            btn.classList.toggle("active");
+        }
+
+        // Add to Cart
+        function addToCart(productId) {
+            const count = document.getElementById("cartCount");
+            count.classList.remove("hidden");
+            count.textContent = (parseInt(count.textContent || 0) + 1).toString();
+        }
+
+        // Quick View
+        function openQuickView(productId) {
+            console.log("Quick view for product:", productId);
+            alert("Quick view modal for product " + productId);
+        }
+
+        // Mobile Filter Toggle
+        const mobileFilterBtn = document.getElementById("mobileFilterBtn");
+        const filterPanel = document.getElementById("filterPanel");
+        const filterOverlay = document.getElementById("filterOverlay");
+        const filterCloseBtn = document.getElementById("filterCloseBtn");
+
+        mobileFilterBtn.addEventListener("click", () => {
+            filterPanel.classList.add("open");
+            filterOverlay.classList.add("active");
+        });
+
+        filterCloseBtn.addEventListener("click", () => {
+            filterPanel.classList.remove("open");
+            filterOverlay.classList.remove("active");
+        });
+
+        filterOverlay.addEventListener("click", () => {
+            filterPanel.classList.remove("open");
+            filterOverlay.classList.remove("active");
+        });
+
+        // Initial Render
+        renderProducts();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,1561 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Diamond Pendant - Magnetic Flow Jewelry</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* CSS Variables */
+        :root {
+            --dark-bg: #0a0a0a;
+            --dark-secondary: #1a1a1a;
+            --primary-color: #D4AF37;
+            --secondary-color: #8F3552;
+            --accent-gold: #C9A961;
+            --light-text: #f5f5f5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            font-family: 'Poppins', sans-serif;
+            transition: background-color 0.3s ease;
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--dark-secondary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-gold);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--dark-bg);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        header nav {
+            max-width: 120rem;
+            margin: 0 auto;
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* Mobile Menu Button */
+        #mobileMenuBtn {
+            display: none;
+            text-align: center;
+            transition: color 0.3s ease;
+            padding: 0.5rem;
+        }
+
+        #mobileMenuBtn:hover {
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 1024px) {
+            #mobileMenuBtn {
+                display: block;
+            }
+        }
+
+        /* Desktop Navigation */
+        .desktop-nav {
+            display: flex;
+            gap: 3rem;
+            font-size: 0.875rem;
+            color: white;
+            font-weight: 300;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            flex: 1;
+        }
+
+        .desktop-nav a {
+            transition: color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .desktop-nav a:hover {
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 1024px) {
+            .desktop-nav {
+                display: none;
+            }
+        }
+
+        /* Logo */
+        .logo-section {
+            flex: 1;
+            text-align: center;
+            z-index: 50;
+        }
+
+        .logo-section a {
+            color: white;
+            font-size: 1.5rem;
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .logo-section a:hover {
+            color: var(--primary-color);
+        }
+
+        .logo-section img {
+            width: 300px;
+            margin: 0 auto;
+            max-width: 100%;
+        }
+
+        /* Right Navigation */
+        .nav-right {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 1rem;
+            color: white;
+        }
+
+        .lang-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .lang-dropdown button {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            padding: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .lang-dropdown button:hover {
+            color: var(--primary-color);
+        }
+
+        .lang-dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: var(--dark-secondary);
+            min-width: 120px;
+            box-shadow: 0 8px 16px rgba(212, 175, 55, 0.2);
+            padding: 0.5rem 0;
+            z-index: 1;
+            border: 1px solid var(--primary-color);
+            border-radius: 4px;
+            top: 100%;
+            margin-top: 0.5rem;
+        }
+
+        .lang-dropdown-content a {
+            color: var(--light-text);
+            padding: 0.75rem 1rem;
+            text-decoration: none;
+            display: block;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .lang-dropdown-content a:hover {
+            background-color: rgba(212, 175, 55, 0.1);
+            color: var(--primary-color);
+        }
+
+        .lang-dropdown:hover .lang-dropdown-content {
+            display: block;
+        }
+
+        /* Icon Buttons */
+        .icon-btn {
+            transition: color 0.3s ease;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .icon-btn:hover {
+            color: var(--primary-color);
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -0.25rem;
+            right: -0.25rem;
+            width: 0.5rem;
+            height: 0.5rem;
+            background: #ef4444;
+            border-radius: 50%;
+        }
+
+        /* Product Gallery */
+        .gallery-main {
+            width: 100%;
+            height: 650px;
+            object-fit: cover;
+            border-radius: 0;
+            cursor: zoom-in;
+            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            background: linear-gradient(135deg, #1a1a1a 0%, var(--dark-secondary) 100%);
+        }
+
+        .gallery-main:hover {
+            transform: scale(1.04);
+        }
+
+        .gallery-thumbnail {
+            width: 100%;
+            height: 110px;
+            object-fit: cover;
+            border-radius: 0;
+            cursor: pointer;
+            border: 2px solid rgba(212, 175, 55, 0.2);
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .gallery-thumbnail:hover {
+            border-color: var(--primary-color);
+            transform: scale(1.03);
+        }
+
+        .gallery-thumbnail.active {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Rating Stars */
+        .stars {
+            display: flex;
+            gap: 4px;
+            align-items: center;
+        }
+
+        .star {
+            color: var(--primary-color);
+            font-size: 16px;
+        }
+
+        .star.empty {
+            color: rgba(212, 175, 55, 0.3);
+        }
+
+        /* Review Card */
+        .review-card {
+            background: linear-gradient(135deg, #1a1a1a 0%, var(--dark-secondary) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            border-radius: 0;
+            padding: 1.5rem;
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .review-card:hover {
+            border-color: rgba(212, 175, 55, 0.4);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.15);
+        }
+
+        /* Buttons */
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--dark-bg);
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 2px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 0.8125rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-gold);
+            transform: scale(1.02);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--light-text);
+            padding: 0.75rem 2rem;
+            border: 1px solid var(--primary-color);
+            border-radius: 2px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 0.8125rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary-color);
+            color: var(--dark-bg);
+        }
+
+        /* Sidebar Cart */
+        .cart-sidebar {
+            position: fixed;
+            right: 0;
+            top: 0;
+            width: 420px;
+            height: 100vh;
+            background: linear-gradient(135deg, var(--dark-secondary) 0%, var(--dark-bg) 100%);
+            border-left: 1px solid rgba(212, 175, 55, 0.2);
+            transform: translateX(100%);
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            z-index: 50;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cart-sidebar.active {
+            transform: translateX(0);
+        }
+
+        .cart-header {
+            padding: 24px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-close {
+            background: none;
+            border: none;
+            color: var(--primary-color);
+            font-size: 28px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .cart-close:hover {
+            transform: rotate(90deg);
+            color: var(--secondary-color);
+        }
+
+        .cart-items {
+            flex: 1;
+            overflow-y: auto;
+            padding: 24px;
+        }
+
+        .cart-item {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .cart-item-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .cart-item-details {
+            flex: 1;
+        }
+
+        .cart-item-remove {
+            color: #ef4444;
+            cursor: pointer;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .cart-item-remove:hover {
+            transform: scale(1.2);
+            color: #dc2626;
+        }
+
+        .cart-footer {
+            padding: 24px;
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+            background: rgba(26, 26, 26, 0.5);
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            z-index: 40;
+        }
+
+        .overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* Mobile Link */
+        .mobile-link {
+            transition: all 0.3s ease;
+        }
+
+        .mobile-link:hover {
+            padding-left: 0.625rem;
+            color: var(--primary-color);
+        }
+
+        /* Quantity Input */
+        .quantity-input {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 2px;
+            padding: 0.25rem;
+            width: fit-content;
+            background: transparent;
+        }
+
+        .quantity-btn {
+            background: transparent;
+            border: none;
+            color: var(--primary-color);
+            cursor: pointer;
+            padding: 0.25rem 0.5rem;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .quantity-btn:hover {
+            color: var(--accent-gold);
+            transform: scale(1.15);
+        }
+
+        .quantity-display {
+            width: 2rem;
+            text-align: center;
+            color: white;
+            font-weight: 500;
+        }
+
+        /* Product Options */
+        .option-selector {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .option-item {
+            padding: 0.75rem 1rem;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            background: transparent;
+            color: white;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-size: 0.875rem;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+        }
+
+        .option-item:hover {
+            border-color: var(--primary-color);
+            background-color: rgba(212, 175, 55, 0.05);
+        }
+
+        .option-item.selected {
+            background: var(--primary-color);
+            color: var(--dark-bg);
+            border-color: var(--primary-color);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .cart-sidebar {
+                width: 100%;
+                max-width: 400px;
+            }
+
+            .gallery-main {
+                height: 450px;
+            }
+
+            main {
+                margin-top: 5rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+        }
+
+        .spec-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .spec-label {
+            color: #888;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 500;
+        }
+
+        .spec-value {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+        }
+
+        .breadcrumb {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .breadcrumb a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--secondary-color);
+        }
+
+        .rating-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, var(--dark-secondary) 100%);
+            padding: 24px;
+            border-radius: 12px;
+            margin-bottom: 24px;
+        }
+
+        .rating-bar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .rating-bar-label {
+            width: 100px;
+            color: #999;
+            font-size: 14px;
+        }
+
+        .rating-bar-fill {
+            flex: 1;
+            height: 8px;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .rating-bar-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 4px;
+        }
+
+        .rating-count {
+            color: #666;
+            font-size: 14px;
+            text-align: right;
+            width: 60px;
+        }
+
+        /* FAQ Styles */
+        .faq-item {
+            background-color: rgba(26, 26, 26, 0.5);
+        }
+
+        .faq-button {
+            cursor: pointer;
+        }
+
+        .faq-content {
+            transition: max-height 0.3s ease-out;
+        }
+
+        .faq-item.active .faq-button {
+            background-color: rgba(212, 175, 55, 0.1);
+        }
+
+        .faq-item.active .faq-content {
+            max-height: 500px;
+            transition: max-height 0.3s ease-in;
+        }
+
+        .faq-button:hover {
+            background-color: rgba(212, 175, 55, 0.05);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- HEADER & NAVIGATION -->
+    <header id="header">
+        <nav>
+            <!-- Mobile Menu Button -->
+            <button id="mobileMenuBtn" class="text-white hover:text-[var(--primary-color)] transition-colors p-2">
+                <span class="sr-only">Menu</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+
+            <!-- Desktop Navigation -->
+            <div class="desktop-nav">
+                <a href="index.html#new-in">New In</a>
+                <a href="index.html#signature">Collections</a>
+                <a href="index.html#bespoke">Bespoke</a>
+                <a href="index.html#about">About</a>
+            </div>
+
+            <!-- Logo -->
+            <div class="logo-section">
+                <a href="index.html" class="hover:text-[var(--primary-color)] transition-colors">
+                    <img src="logo-removebg-preview.png" alt="Magnetic Flow" style="width: 280px;">
+                </a>
+            </div>
+
+            <!-- Right Navigation -->
+            <div class="nav-right">
+                <!-- Language Selector -->
+                <div class="lang-dropdown">
+                    <button id="langBtn" class="flex items-center gap-1">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                        </svg>
+                        <span id="currentLang">EN</span>
+                    </button>
+                    <div class="lang-dropdown-content">
+                        <a href="#" class="lang-option active" data-lang="en">English</a>
+                        <a href="#" class="lang-option" data-lang="es">Español</a>
+                    </div>
+                </div>
+
+                <!-- Search Button -->
+                <button class="icon-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
+
+                <!-- Cart Button -->
+                <button id="cartToggleBtn" class="icon-btn relative">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                    </svg>
+                    <span id="cartCount" class="cart-badge hidden"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- MOBILE MENU OVERLAY -->
+    <div id="mobileMenuOverlay" class="fixed inset-0 bg-black/60 z-40 hidden opacity-0 transition-opacity duration-300 backdrop-blur-sm"></div>
+
+    <!-- MOBILE MENU -->
+    <div id="mobileMenu" class="fixed top-0 left-0 bottom-0 w-[85%] max-w-sm bg-[var(--dark-secondary)] z-50 transform -translate-x-full shadow-2xl flex flex-col border-r border-[rgba(212,175,55,0.2)]">
+        <div class="p-6 pt-24 flex-1 overflow-y-auto">
+            <nav class="flex flex-col space-y-8">
+                <div class="space-y-4">
+                    <span class="text-xs font-bold text-gray-500 uppercase tracking-widest">Collections</span>
+                    <a href="index.html#new-in" class="mobile-link block text-2xl font-serif text-white">New In</a>
+                    <a href="index.html#signature" class="mobile-link block text-2xl font-serif text-white">Collections</a>
+                    <a href="index.html#bespoke" class="mobile-link block text-2xl font-serif text-white">Bespoke</a>
+                </div>
+                <hr class="border-[rgba(212,175,55,0.1)] my-4">
+                <div class="space-y-4">
+                    <span class="text-xs font-bold text-gray-500 uppercase tracking-widest">Categories</span>
+                    <a href="#" class="mobile-link block text-lg font-light text-gray-300">Jewelry</a>
+                    <a href="#" class="mobile-link block text-lg font-light text-gray-300">Watches</a>
+                    <a href="#" class="mobile-link block text-lg font-light text-gray-300">Decorations</a>
+                    <a href="#" class="mobile-link block text-lg font-light text-gray-300">Gifts</a>
+                </div>
+            </nav>
+        </div>
+        <div class="p-6 bg-[#000000] border-t border-[rgba(212,175,55,0.1)]">
+            <div class="flex flex-col gap-4">
+                <a href="#" class="text-sm text-gray-400 hover:text-[var(--primary-color)] transition-colors flex items-center gap-2">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    Log In / Register
+                </a>
+                <a href="#" class="text-sm text-gray-400 hover:text-[var(--primary-color)] transition-colors">Customer Care</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 md:px-8 py-24 mt-16">
+        <!-- Breadcrumb -->
+        <div class="breadcrumb mb-12">
+            <a href="index.html" class="text-[var(--primary-color)] hover:text-[var(--accent-gold)] transition-colors">Home</a>
+            <span class="text-gray-500 mx-2">→</span>
+            <a href="#" class="text-[var(--primary-color)] hover:text-[var(--accent-gold)] transition-colors">Jewelry</a>
+            <span class="text-gray-500 mx-2">→</span>
+            <span class="text-gray-400">Luxury Diamond Pendant</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 mb-24">
+            <!-- Gallery Section -->
+            <div>
+                <div class="mb-8">
+                    <img id="mainImage" src="images/15.jpeg"
+                        alt="Luxury Diamond Pendant" class="gallery-main">
+                </div>
+                <div class="grid grid-cols-4 gap-4">
+                    <img src="images/1.jpeg"
+                        alt="View 1" class="gallery-thumbnail active" onclick="changeImage(this)">
+                    <img src="images/1.1.jpeg" 
+                        alt="View 2" class="gallery-thumbnail" onclick="changeImage(this)">
+                    <img src="images/3.jpeg"
+                        alt="View 3" class="gallery-thumbnail" onclick="changeImage(this)">
+                    <img src="images/19.jpeg"
+                        alt="View 4" class="gallery-thumbnail" onclick="changeImage(this)">
+                </div>
+            </div>
+
+            <!-- Product Details Section -->
+            <div>
+                <div class="mb-8">
+                    <span class="text-xs uppercase tracking-[0.3em] text-[var(--primary-color)] font-bold" style="letter-spacing: 0.2em;">✦ Premium Masterpiece</span>
+                    <h1 class="text-5xl md:text-6xl font-serif text-white mt-4 mb-6 leading-tight">Luminous Diamond Pendant</h1>
+                    <div class="w-20 h-0.5 bg-gradient-to-r from-[var(--primary-color)] to-transparent mb-6"></div>
+                </div>
+
+                <!-- Rating -->
+                <div class="flex items-center gap-4 mb-8">
+                    <div class="stars">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                    <span class="text-gray-400 text-sm">(248 verified reviews)</span>
+                </div>
+
+                <!-- Price -->
+                <div class="mb-10">
+                    <div class="flex items-baseline gap-4">
+                        <span class="text-5xl font-bold text-[var(--primary-color)]">$12,999</span>
+                        <span class="text-lg text-gray-500 line-through">$15,999</span>
+                        <span class="text-xs bg-[var(--primary-color)] text-[var(--dark-bg)] px-3 py-1 font-bold uppercase tracking-wider">18% OFF</span>
+                    </div>
+                    <p class="text-gray-500 text-xs mt-3 uppercase tracking-widest">Inclusive of all taxes • Free worldwide shipping</p>
+                </div>
+
+                <!-- Description -->
+                <p class="text-gray-300 leading-relaxed mb-10 text-base">
+                    Experience unparalleled elegance with this exquisite luxury diamond pendant, meticulously crafted 
+                    by our master jewelers. Featuring a 2.5 carat certified diamond surrounded by 18k white gold, 
+                    this timeless piece represents the pinnacle of sophistication and refinement.
+                </p>
+
+                <!-- Options -->
+                <div class="mb-10">
+                    <label class="block text-xs uppercase tracking-[0.15em] font-bold mb-4 text-gray-300">Metal Type</label>
+                    <div class="option-selector">
+                        <button class="option-item selected" onclick="selectOption(this, 'metal')">18K White Gold</button>
+                        <button class="option-item" onclick="selectOption(this, 'metal')">18K Yellow Gold</button>
+                        <button class="option-item" onclick="selectOption(this, 'metal')">18K Rose Gold</button>
+                        <button class="option-item" onclick="selectOption(this, 'metal')">Platinum</button>
+                    </div>
+                </div>
+
+                <div class="mb-10">
+                    <label class="block text-xs uppercase tracking-[0.15em] font-bold mb-4 text-gray-300">Chain Length</label>
+                    <div class="option-selector">
+                        <button class="option-item selected" onclick="selectOption(this, 'chain')">16 inches</button>
+                        <button class="option-item" onclick="selectOption(this, 'chain')">18 inches</button>
+                        <button class="option-item" onclick="selectOption(this, 'chain')">20 inches</button>
+                    </div>
+                </div>
+
+                <!-- Quantity -->
+                <div class="mb-10">
+                    <label class="block text-xs uppercase tracking-[0.15em] font-bold mb-4 text-gray-300">Quantity</label>
+                    <div class="quantity-input">
+                        <button class="quantity-btn" onclick="decreaseQuantity()">−</button>
+                        <span class="quantity-display" id="quantityDisplay">1</span>
+                        <button class="quantity-btn" onclick="increaseQuantity()">+</button>
+                    </div>
+                </div>
+
+                <!-- Buttons -->
+                <div class="flex gap-4 mb-12">
+                    <button class="btn-primary flex-1" onclick="addToCart()">Add to Cart</button>
+                    <button class="btn-secondary">♡ Wishlist</button>
+                </div>
+
+                <!-- Specifications -->
+                <div class="bg-gradient-to-br from-[rgba(26,26,26,0.5)] to-[rgba(212,175,55,0.05)] p-8 border border-[rgba(212,175,55,0.15)] mb-12">
+                    <h3 class="text-xl font-serif mb-8 text-white uppercase tracking-wide">Key Specifications</h3>
+                    <div class="spec-item">
+                        <span class="spec-label">Diamond Carat</span>
+                        <span class="spec-value">2.5 CT</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Diamond Color</span>
+                        <span class="spec-value">D (Colorless)</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Diamond Clarity</span>
+                        <span class="spec-value">VS1</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Metal</span>
+                        <span class="spec-value">18K White Gold</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Certificate</span>
+                        <span class="spec-value">GIA Certified</span>
+                    </div>
+                    <div class="spec-item" style="border-bottom: none;">
+                        <span class="spec-label">Lifetime Warranty</span>
+                        <span class="spec-value">Yes</span>
+                    </div>
+                </div>
+
+                <!-- Trust Badges -->
+                <div class="grid grid-cols-3 gap-4 mb-12">
+                    <div class="text-center p-5 bg-[rgba(212,175,55,0.08)] border border-[rgba(212,175,55,0.15)]">
+                        <div class="text-3xl mb-3 text-[var(--primary-color)]">✓</div>
+                        <p class="text-xs text-gray-400">Certified</p>
+                    </div>
+                    <div class="text-center p-4 bg-[rgba(212,175,55,0.05)] rounded-lg">
+                        <div class="text-2xl mb-2">🔒</div>
+                        <p class="text-xs text-gray-400">Secure Payment</p>
+                    </div>
+                    <div class="text-center p-4 bg-[rgba(212,175,55,0.05)] rounded-lg">
+                        <div class="text-2xl mb-2">📦</div>
+                        <p class="text-xs text-gray-400">Free Shipping</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Information Section -->
+        <section class="py-20 px-6 md:px-12 bg-[var(--dark-secondary)] mb-16 rounded-xl">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-serif mb-12 text-center">Health & Energy Benefits</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+                    <!-- Benefits Column 1 -->
+                    <div class="space-y-6">
+                        <div class="p-6 rounded-lg bg-[#0a0a0a] border border-[rgba(212,175,55,0.2)] hover:border-[rgba(212,175,55,0.5)] transition-all">
+                            <h3 class="text-lg font-semibold text-[var(--primary-color)] mb-3">Improves Circulation</h3>
+                            <p class="text-gray-300 text-sm leading-relaxed">The strong magnets create a focused magnetic field around your wrist, which may help improve blood flow. Studies have found that static magnets can influence blood vessels to relax and dilate, encouraging better circulation in areas of discomfort.</p>
+                        </div>
+
+                        <div class="p-6 rounded-lg bg-[#0a0a0a] border border-[rgba(212,175,55,0.2)] hover:border-[rgba(212,175,55,0.5)] transition-all">
+                            <h3 class="text-lg font-semibold text-[var(--primary-color)] mb-3">Reduces Inflammation & Pain</h3>
+                            <p class="text-gray-300 text-sm leading-relaxed">Magnetic therapy is widely used to ease aches. Research indicates magnets can significantly reduce swelling in tissues and joints when applied promptly. Many users report relief from stiffness and joint pain – making this piece a popular choice for discomfort support.</p>
+                        </div>
+
+                        <div class="p-6 rounded-lg bg-[#0a0a0a] border border-[rgba(212,175,55,0.2)] hover:border-[rgba(212,175,55,0.5)] transition-all">
+                            <h3 class="text-lg font-semibold text-[var(--primary-color)] mb-3">Joint Support & Flexibility</h3>
+                            <p class="text-gray-300 text-sm leading-relaxed">Copper has been worn for centuries to assist with joint health. Copper-plated beads gently release trace amounts of copper to the skin, a practice believed to reduce inflammation in joints and alleviate arthritis pain. Copper is also essential for bone development.</p>
+                        </div>
+                    </div>
+
+                    <!-- Benefits Column 2 -->
+                    <div class="space-y-6">
+                        <div class="p-6 rounded-lg bg-[#0a0a0a] border border-[rgba(212,175,55,0.2)] hover:border-[rgba(212,175,55,0.5)] transition-all">
+                            <h3 class="text-lg font-semibold text-[var(--primary-color)] mb-3">Grounding Energy</h3>
+                            <p class="text-gray-300 text-sm leading-relaxed">Hematite is a naturally grounding stone rich in iron. It's known to help you feel centered and stable by connecting to the root chakra (your energy center for security). Combined with copper – one of the most electrically conductive metals – this piece helps balance your energy flow.</p>
+                        </div>
+
+                        <div class="p-6 rounded-lg bg-[#0a0a0a] border border-[rgba(212,175,55,0.2)] hover:border-[rgba(212,175,55,0.5)] transition-all">
+                            <h3 class="text-lg font-semibold text-[var(--primary-color)] mb-3">Natural Healing & Wellness</h3>
+                            <p class="text-gray-300 text-sm leading-relaxed">Both copper and brass have inherent wellness properties. Copper is antimicrobial and thought to boost immunity and vitality. Brass is traditionally regarded as a healing metal that stimulates the immune system and fosters courage and confidence.</p>
+                        </div>
+
+                        <div class="p-6 rounded-lg bg-[#0a0a0a] border border-[rgba(212,175,55,0.2)] hover:border-[rgba(212,175,55,0.5)] transition-all">
+                            <h3 class="text-lg font-semibold text-[var(--primary-color)] mb-3">Energy Amplification</h3>
+                            <p class="text-gray-300 text-sm leading-relaxed">Copper is said to amplify the flow of bioenergy or "chi" through your system. Brass carries a protective vibe and is believed to shield against negative energy. Together, these metals harmonize with your body's energy pathways.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- How It Works Section -->
+                <div class="bg-gradient-to-br from-[#1a1a1a] to-[var(--dark-bg)] p-8 md:p-12 rounded-2xl border border-[rgba(212,175,55,0.2)]">
+                    <h2 class="text-2xl md:text-3xl font-serif mb-8 text-center">How It Works</h2>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div>
+                            <h3 class="text-xl font-serif text-[var(--primary-color)] mb-4">Scientific Insight</h3>
+                            <p class="text-gray-300 text-sm leading-relaxed mb-4">The piece works by combining magnetic therapy with the benefits of trace minerals. The static magnetic field from the hematite magnets gently penetrates the area around your joint. Modern studies suggest magnetism can influence our physiology – helping blood vessels relax and reducing inflammation.</p>
+                            <p class="text-gray-300 text-sm leading-relaxed">By improving local blood flow, the magnets may bring more oxygen and nutrients, promoting faster recovery and pain relief. Copper ions from the beads may be absorbed through the skin, contributing to relief from aches or stiffness.</p>
+                        </div>
+
+                        <div>
+                            <h3 class="text-xl font-serif text-[var(--primary-color)] mb-4">Holistic Perspective</h3>
+                            <p class="text-gray-300 text-sm leading-relaxed mb-4">This piece taps into age-old holistic wisdom. Magnetic therapy has been used since ancient times to balance the body's energies. Practitioners believe the magnetic field aligns the body's electromagnetic field, promoting equilibrium that can lead to reduced stress and improved vitality.</p>
+                            <p class="text-gray-300 text-sm leading-relaxed">By wearing this piece, you ground yourself to the earth, nourish your body with beneficial minerals, and surround your energy field with a gentle, balancing magnetic aura. The result is a fusion of style and wellness supporting you physically and energetically.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reviews Section -->
+        <section class="mb-16">
+            <div class="mb-12">
+                <h2 class="text-3xl md:text-4xl font-serif text-white mb-8">Customer Reviews</h2>
+
+                <!-- Overall Rating -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                    <div class="rating-section">
+                        <div class="text-5xl font-bold text-[var(--primary-color)] mb-2">4.9</div>
+                        <div class="stars mb-2">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <p class="text-sm text-gray-400">Based on 248 reviews</p>
+                    </div>
+
+                    <div class="rating-section md:col-span-2">
+                        <div class="rating-bar">
+                            <span class="rating-bar-label">5 Stars</span>
+                            <div class="rating-bar-fill">
+                                <div class="rating-bar-progress" style="width: 85%"></div>
+                            </div>
+                            <span class="rating-count">210</span>
+                        </div>
+                        <div class="rating-bar">
+                            <span class="rating-bar-label">4 Stars</span>
+                            <div class="rating-bar-fill">
+                                <div class="rating-bar-progress" style="width: 10%"></div>
+                            </div>
+                            <span class="rating-count">25</span>
+                        </div>
+                        <div class="rating-bar">
+                            <span class="rating-bar-label">3 Stars</span>
+                            <div class="rating-bar-fill">
+                                <div class="rating-bar-progress" style="width: 3%"></div>
+                            </div>
+                            <span class="rating-count">8</span>
+                        </div>
+                        <div class="rating-bar">
+                            <span class="rating-bar-label">2 Stars</span>
+                            <div class="rating-bar-fill">
+                                <div class="rating-bar-progress" style="width: 1%"></div>
+                            </div>
+                            <span class="rating-count">3</span>
+                        </div>
+                        <div class="rating-bar">
+                            <span class="rating-bar-label">1 Star</span>
+                            <div class="rating-bar-fill">
+                                <div class="rating-bar-progress" style="width: 1%"></div>
+                            </div>
+                            <span class="rating-count">2</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Individual Reviews -->
+                <div class="space-y-6">
+                    <!-- Review 1 -->
+                    <div class="review-card">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <div class="flex items-center gap-2 mb-2">
+                                    <span class="font-semibold">Sarah Mitchell</span>
+                                    <span class="text-xs text-gray-500">Verified Purchase</span>
+                                </div>
+                                <div class="stars text-sm">
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                </div>
+                            </div>
+                            <span class="text-xs text-gray-500">2 weeks ago</span>
+                        </div>
+                        <h4 class="font-semibold mb-2">Absolutely Stunning!</h4>
+                        <p class="text-gray-300 text-sm mb-4">
+                            This pendant exceeded all my expectations. The diamond sparkles beautifully, and the craftsmanship 
+                            is impeccable. The presentation was luxurious, and the delivery was secure and on time. I've already 
+                            received multiple compliments on this gorgeous piece.
+                        </p>
+                        <div class="flex gap-4 text-sm">
+                            <button class="text-gray-400 hover:text-[var(--primary-color)]">👍 Helpful (12)</button>
+                            <button class="text-gray-400 hover:text-[var(--primary-color)]">💬 Reply</button>
+                        </div>
+                    </div>
+
+                    <!-- Review 2 -->
+                    <div class="review-card">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <div class="flex items-center gap-2 mb-2">
+                                    <span class="font-semibold">James Anderson</span>
+                                    <span class="text-xs text-gray-500">Verified Purchase</span>
+                                </div>
+                                <div class="stars text-sm">
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                </div>
+                            </div>
+                            <span class="text-xs text-gray-500">1 month ago</span>
+                        </div>
+                        <h4 class="font-semibold mb-2">Perfect Engagement Gift</h4>
+                        <p class="text-gray-300 text-sm mb-4">
+                            I purchased this as an engagement gift for my fiancée, and she absolutely loves it. The quality is 
+                            premium, the packaging is luxurious, and the customer service was exceptional. Worth every penny!
+                        </p>
+                        <div class="flex gap-4 text-sm">
+                            <button class="text-gray-400 hover:text-[var(--primary-color)]">👍 Helpful (8)</button>
+                            <button class="text-gray-400 hover:text-[var(--primary-color)]">💬 Reply</button>
+                        </div>
+                    </div>
+
+                    <!-- Review 3 -->
+                    <div class="review-card">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <div class="flex items-center gap-2 mb-2">
+                                    <span class="font-semibold">Emma Rodriguez</span>
+                                    <span class="text-xs text-gray-500">Verified Purchase</span>
+                                </div>
+                                <div class="stars text-sm">
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="empty star">★</span>
+                                </div>
+                            </div>
+                            <span class="text-xs text-gray-500">3 weeks ago</span>
+                        </div>
+                        <h4 class="font-semibold mb-2">Excellent Quality, Minor Wait</h4>
+                        <p class="text-gray-300 text-sm mb-4">
+                            The pendant is absolutely beautiful and the diamond is brilliant. My only feedback is that shipping 
+                            took a bit longer than expected, but the secure packaging made it worth the wait. Highly recommend!
+                        </p>
+                        <div class="flex gap-4 text-sm">
+                            <button class="text-gray-400 hover:text-[var(--primary-color)]">👍 Helpful (5)</button>
+                            <button class="text-gray-400 hover:text-[var(--primary-color)]">💬 Reply</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Load More Reviews -->
+                <div class="text-center mt-12">
+                    <button class="btn-secondary px-8">Load More Reviews</button>
+                </div>
+            </div>
+        </section>
+        <!-- FAQ SECTION -->
+        <section class="py-20 px-6 md:px-12 bg-[var(--dark-secondary)]">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-serif text-white mb-4">Frequently Asked Questions</h2>
+                    <p class="text-gray-400">Everything you need to know about Magnetic Flow jewelry</p>
+                </div>
+
+                <div class="space-y-4" id="faqContainer">
+                    <!-- FAQ Item 1 -->
+                    <div class="faq-item border border-[rgba(212,175,55,0.2)] rounded-lg overflow-hidden">
+                        <button class="faq-button w-full p-6 flex justify-between items-center hover:bg-[#1a1a1a] transition-all" onclick="toggleFaq(this)">
+                            <span class="text-left font-semibold text-white">Are Magnetic Flow products scientifically proven?</span>
+                            <span class="text-[var(--primary-color)] text-2xl">+</span>
+                        </button>
+                        <div class="faq-content max-h-0 overflow-hidden transition-all duration-300">
+                            <div class="p-6 bg-[#0a0a0a] text-gray-300 text-sm leading-relaxed">
+                                While Magnetic Flow products are not medical devices and are not intended to diagnose, treat, cure, or prevent disease, magnetic therapy has been studied for blood flow interaction, muscle relaxation, joint comfort, and inflammation response. Research supports the potential benefits of magnetic therapy, and many customers report positive results with consistent use.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 2 -->
+                    <div class="faq-item border border-[rgba(212,175,55,0.2)] rounded-lg overflow-hidden">
+                        <button class="faq-button w-full p-6 flex justify-between items-center hover:bg-[#1a1a1a] transition-all" onclick="toggleFaq(this)">
+                            <span class="text-left font-semibold text-white">Can I wear my Magnetic Flow jewelry all day?</span>
+                            <span class="text-[var(--primary-color)] text-2xl">+</span>
+                        </button>
+                        <div class="faq-content max-h-0 overflow-hidden transition-all duration-300">
+                            <div class="p-6 bg-[#0a0a0a] text-gray-300 text-sm leading-relaxed">
+                                Yes! Magnetic Flow jewelry is designed to be worn daily. Many customers wear their bracelets, necklaces, and other pieces 24/7. However, if you experience any discomfort or irritation, remove the piece and consult with a healthcare professional. For optimal results, maintain consistent contact with your skin.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 3 -->
+                    <div class="faq-item border border-[rgba(212,175,55,0.2)] rounded-lg overflow-hidden">
+                        <button class="faq-button w-full p-6 flex justify-between items-center hover:bg-[#1a1a1a] transition-all" onclick="toggleFaq(this)">
+                            <span class="text-left font-semibold text-white">Is this safe if I have a pacemaker?</span>
+                            <span class="text-[var(--primary-color)] text-2xl">+</span>
+                        </button>
+                        <div class="faq-content max-h-0 overflow-hidden transition-all duration-300">
+                            <div class="p-6 bg-[#0a0a0a] text-gray-300 text-sm leading-relaxed">
+                                If you have a pacemaker or any implanted medical device, please consult your physician before using Magnetic Flow products. Your safety is our top priority. Do not use this product without medical clearance if you have any electronic implants.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 4 -->
+                    <div class="faq-item border border-[rgba(212,175,55,0.2)] rounded-lg overflow-hidden">
+                        <button class="faq-button w-full p-6 flex justify-between items-center hover:bg-[#1a1a1a] transition-all" onclick="toggleFaq(this)">
+                            <span class="text-left font-semibold text-white">What is the magnet strength in these pieces?</span>
+                            <span class="text-[var(--primary-color)] text-2xl">+</span>
+                        </button>
+                        <div class="faq-content max-h-0 overflow-hidden transition-all duration-300">
+                            <div class="p-6 bg-[#0a0a0a] text-gray-300 text-sm leading-relaxed">
+                                Our pieces feature magnetized hematite beads (400–600 gauss) with optional neodymium cores (N42–N52) for enhanced effect. The specific magnet strength is detailed in each product's specifications. Neodymium cores provide significantly stronger magnetism for those seeking maximum support.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 5 -->
+                    <div class="faq-item border border-[rgba(212,175,55,0.2)] rounded-lg overflow-hidden">
+                        <button class="faq-button w-full p-6 flex justify-between items-center hover:bg-[#1a1a1a] transition-all" onclick="toggleFaq(this)">
+                            <span class="text-left font-semibold text-white">How do I care for and clean my jewelry?</span>
+                            <span class="text-[var(--primary-color)] text-2xl">+</span>
+                        </button>
+                        <div class="faq-content max-h-0 overflow-hidden transition-all duration-300">
+                            <div class="p-6 bg-[#0a0a0a] text-gray-300 text-sm leading-relaxed">
+                                Gently wipe your jewelry with a soft, damp cloth to clean. Avoid harsh chemicals or ultrasonic cleaners that could damage the magnets or materials. Store in a cool, dry place away from other electronic devices. The magnets are durable and designed for long-term wear, but handle with care to maintain their strength.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 6 -->
+                    <div class="faq-item border border-[rgba(212,175,55,0.2)] rounded-lg overflow-hidden">
+                        <button class="faq-button w-full p-6 flex justify-between items-center hover:bg-[#1a1a1a] transition-all" onclick="toggleFaq(this)">
+                            <span class="text-left font-semibold text-white">Can I return or exchange my product?</span>
+                            <span class="text-[var(--primary-color)] text-2xl">+</span>
+                        </button>
+                        <div class="faq-content max-h-0 overflow-hidden transition-all duration-300">
+                            <div class="p-6 bg-[#0a0a0a] text-gray-300 text-sm leading-relaxed">
+                                Yes, we offer a 30-day satisfaction guarantee. If you're not completely satisfied with your purchase, contact our customer service team for a full refund or exchange. We stand behind the quality and craftsmanship of all Magnetic Flow products.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 7 -->
+                    <div class="faq-item border border-[rgba(212,175,55,0.2)] rounded-lg overflow-hidden">
+                        <button class="faq-button w-full p-6 flex justify-between items-center hover:bg-[#1a1a1a] transition-all" onclick="toggleFaq(this)">
+                            <span class="text-left font-semibold text-white">How long do the magnets stay active?</span>
+                            <span class="text-[var(--primary-color)] text-2xl">+</span>
+                        </button>
+                        <div class="faq-content max-h-0 overflow-hidden transition-all duration-300">
+                            <div class="p-6 bg-[#0a0a0a] text-gray-300 text-sm leading-relaxed">
+                                Our magnetized hematite beads and neodymium cores maintain their strength for many years with proper care. Unlike some products, Magnetic Flow jewelry is designed to be a long-term investment in your wellness. The magnets will not lose their strength under normal daily use conditions.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 8 -->
+                    <div class="faq-item border border-[rgba(212,175,55,0.2)] rounded-lg overflow-hidden">
+                        <button class="faq-button w-full p-6 flex justify-between items-center hover:bg-[#1a1a1a] transition-all" onclick="toggleFaq(this)">
+                            <span class="text-left font-semibold text-white">Will this interfere with my phone or electronics?</span>
+                            <span class="text-[var(--primary-color)] text-2xl">+</span>
+                        </button>
+                        <div class="faq-content max-h-0 overflow-hidden transition-all duration-300">
+                            <div class="p-6 bg-[#0a0a0a] text-gray-300 text-sm leading-relaxed">
+                                Magnetic Flow jewelry uses static magnets that are generally safe around modern electronics. However, keep the jewelry at least 6 inches away from your credit cards, as strong magnets can potentially affect magnetic strips. For peace of mind with sensitive electronic devices, maintain a small distance when possible.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Cart Overlay -->
+    <div id="overlay" class="overlay" onclick="closeCart()"></div>
+
+    <!-- Cart Sidebar -->
+    <div id="cartSidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h2 class="text-xl font-serif">Shopping Cart</h2>
+            <button class="cart-close" onclick="closeCart()">×</button>
+        </div>
+
+        <div class="cart-items" id="cartItems">
+            <p class="text-gray-400 text-center py-12">Your cart is empty</p>
+        </div>
+
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Subtotal:</span>
+                <span id="cartSubtotal">$0</span>
+            </div>
+            <div class="cart-total">
+                <span>Shipping:</span>
+                <span id="cartShipping">Free</span>
+            </div>
+            <div class="cart-total mb-6" style="border-top: 1px solid rgba(212,175,55,0.1); padding-top: 16px;">
+                <span>Total:</span>
+                <span id="cartTotal" class="text-[var(--primary-color)] text-xl">$0</span>
+            </div>
+            <button class="btn-primary w-full mb-3">Proceed to Checkout</button>
+            <button class="btn-secondary w-full" onclick="closeCart()">Continue Shopping</button>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#000000] border-t border-[rgba(212,175,55,0.1)] text-white py-12 md:py-16 px-4 md:px-12">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12 md:mb-16">
+                <!-- About -->
+                <div>
+                    <h4 class="text-lg font-serif mb-6" data-en="About Swarovski" data-es="Acerca de Swarovski">About
+                        Swarovski</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#"
+                               class="text-gray-400 hover:text-[var(--primary-color)] transition-colors text-sm"
+                               data-en="Our Story" data-es="Nuestra Historia">Our Story</a></li>
+                        <li><a href="#"
+                               class="text-gray-400 hover:text-[var(--primary-color)] transition-colors text-sm"
+                               data-en="Sustainability" data-es="Sostenibilidad">Sustainability</a></li>
+                        <li><a href="#"
+                               class="text-gray-400 hover:text-[var(--primary-color)] transition-colors text-sm"
+                               data-en="Careers" data-es="Carreras">Careers</a></li>
+                    </ul>
+                </div>
+
+                <!-- Collections -->
+                <div>
+                    <h4 class="text-lg font-serif mb-6" data-en="Collections" data-es="Colecciones">Collections</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#"
+                               class="text-gray-400 hover:text-[var(--primary-color)] transition-colors text-sm"
+                               data-en="Jewelry" data-es="Joyas">Jewelry</a></li>
+                        <li><a href="#"
+                               class="text-gray-400 hover:text-[var(--primary-color)] transition-colors text-sm"
+                               data-en="Watches" data-es="Relojes">Watches</a></li>
+                        <li><a href="#"
+                               class="text-gray-400 hover:text-[var(--primary-color)] transition-colors text-sm"
+                               data-en="Decorations" data-es="Decoraciones">Decorations</a></li>
+                    </ul>
+                </div>
+
+                <!-- Customer Care -->
+                <div>
+                    <h4 class="text-lg font-serif mb-6" data-en="Customer Care" data-es="Servicio al Cliente">Customer
+                        Care</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#"
+                               class="text-gray-400 hover:text-[var(--primary-color)] transition-colors text-sm"
+                               data-en="Contact Us" data-es="Contáctenos">Contact Us</a></li>
+                        <li><a href="#"
+                               class="text-gray-400 hover:text-[var(--primary-color)] transition-colors text-sm"
+                               data-en="Shipping" data-es="Envío">Shipping</a></li>
+                        <li><a href="#"
+                               class="text-gray-400 hover:text-[var(--primary-color)] transition-colors text-sm"
+                               data-en="Returns" data-es="Devoluciones">Returns</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal -->
+                <div>
+                    <h4 class="text-lg font-serif mb-6" data-en="Legal" data-es="Legal">Legal</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#"
+                               class="text-gray-400 hover:text-[var(--primary-color)] transition-colors text-sm"
+                               data-en="Privacy Policy" data-es="Política de Privacidad">Privacy Policy</a></li>
+                        <li><a href="#"
+                               class="text-gray-400 hover:text-[var(--primary-color)] transition-colors text-sm"
+                               data-en="Terms of Service" data-es="Términos de Servicio">Terms of Service</a></li>
+                        <li><a href="#"
+                               class="text-gray-400 hover:text-[var(--primary-color)] transition-colors text-sm"
+                               data-en="Cookies" data-es="Cookies">Cookies</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-[rgba(212,175,55,0.1)] pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                    <p class="text-gray-500 text-sm"
+                       data-en="© 2024 Swarovski. All rights reserved. Masters of Light since 1895."
+                       data-es="© 2024 Swarovski. Todos los derechos reservados. Maestros de la Luz desde 1895.">© 2024
+                        Swarovski. All rights reserved. Masters of Light since 1895.</p>
+                    <div class="flex gap-6">
+                        <a href="#" class="text-gray-400 hover:text-[var(--primary-color)] transition-colors">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                        d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-[var(--primary-color)] transition-colors">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                        d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2s9 5 20 5a9.5 9.5 0 00-9-5.5c4.75 2.25 7-7 7-7" />
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-[var(--primary-color)] transition-colors">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                                <path
+                                        d="M12 4C7.03 4 3 8.03 3 13s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9zm0 16c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11z"
+                                        fill="#000" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Cart Management
+        let cart = [];
+        let quantity = 1;
+        let selectedMetal = '18K White Gold';
+        let selectedChain = '16 inches';
+
+        function changeImage(img) {
+            document.querySelectorAll('.gallery-thumbnail').forEach(el => el.classList.remove('active'));
+            img.classList.add('active');
+            document.getElementById('mainImage').src = img.src.replace('w=150', 'w=800');
+        }
+
+        function selectOption(btn, type) {
+            btn.parentElement.querySelectorAll('.option-item').forEach(el => el.classList.remove('selected'));
+            btn.classList.add('selected');
+
+            if (type === 'metal') {
+                selectedMetal = btn.textContent;
+            } else if (type === 'chain') {
+                selectedChain = btn.textContent;
+            }
+        }
+
+        function increaseQuantity() {
+            quantity++;
+            document.getElementById('quantityDisplay').textContent = quantity;
+        }
+
+        function decreaseQuantity() {
+            if (quantity > 1) {
+                quantity--;
+                document.getElementById('quantityDisplay').textContent = quantity;
+            }
+        }
+
+        function addToCart() {
+            const product = {
+                id: Date.now(),
+                name: 'Luxury Diamond Pendant',
+                price: 12999,
+                quantity: quantity,
+                metal: selectedMetal,
+                chain: selectedChain,
+                image: document.getElementById('mainImage').src
+            };
+
+            cart.push(product);
+            console.log('[v0] Product added to cart:', product);
+
+            // Show success feedback
+            const btn = event.target;
+            const originalText = btn.textContent;
+            btn.textContent = 'Added to Cart!';
+            btn.style.backgroundColor = '#10B981';
+            setTimeout(() => {
+                btn.textContent = originalText;
+                btn.style.backgroundColor = '';
+            }, 2000);
+
+            // Update cart display
+            updateCart();
+            openCart();
+        }
+
+        function updateCart() {
+            const cartItemsDiv = document.getElementById('cartItems');
+            const cartCount = document.getElementById('cartCount');
+
+            if (cart.length === 0) {
+                cartItemsDiv.innerHTML = '<p class="text-gray-400 text-center py-12">Your cart is empty</p>';
+                cartCount.classList.add('hidden');
+                document.getElementById('cartSubtotal').textContent = '$0';
+                document.getElementById('cartTotal').textContent = '$0';
+                return;
+            }
+
+            cartCount.classList.remove('hidden');
+            cartCount.textContent = cart.length;
+
+            cartItemsDiv.innerHTML = cart.map(item => `
+                <div class="cart-item">
+                    <img src="${item.image}" alt="${item.name}" class="cart-item-image">
+                    <div class="cart-item-details">
+                        <h4 class="font-semibold text-sm mb-2">${item.name}</h4>
+                        <p class="text-xs text-gray-400 mb-1">${item.metal}</p>
+                        <p class="text-xs text-gray-400 mb-2">${item.chain}</p>
+                        <p class="font-semibold text-[var(--primary-color)]">$${(item.price * item.quantity).toLocaleString()}</p>
+                        <div class="quantity-input mt-2">
+                            <button class="quantity-btn" onclick="updateItemQuantity(${item.id}, -1)">−</button>
+                            <span class="quantity-display">${item.quantity}</span>
+                            <button class="quantity-btn" onclick="updateItemQuantity(${item.id}, 1)">+</button>
+                        </div>
+                    </div>
+                    <span class="cart-item-remove" onclick="removeFromCart(${item.id})">✕</span>
+                </div>
+            `).join('');
+
+            // Calculate totals
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            document.getElementById('cartSubtotal').textContent = '$' + subtotal.toLocaleString();
+            document.getElementById('cartTotal').textContent = '$' + subtotal.toLocaleString();
+        }
+
+        function updateItemQuantity(id, change) {
+            const item = cart.find(p => p.id === id);
+            if (item) {
+                item.quantity += change;
+                if (item.quantity <= 0) {
+                    removeFromCart(id);
+                } else {
+                    updateCart();
+                }
+            }
+        }
+
+        function removeFromCart(id) {
+            cart = cart.filter(item => item.id !== id);
+            console.log('[v0] Product removed from cart, ID:', id);
+            updateCart();
+        }
+
+        function openCart() {
+            document.getElementById('cartSidebar').classList.add('active');
+            document.getElementById('overlay').classList.add('active');
+        }
+
+        function closeCart() {
+            document.getElementById('cartSidebar').classList.remove('active');
+            document.getElementById('overlay').classList.remove('active');
+        }
+
+        document.getElementById('cartToggleBtn').addEventListener('click', openCart);
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.style.backgroundColor = 'rgba(10, 10, 10, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.backgroundColor = 'var(--dark-bg)';
+                header.style.backdropFilter = 'none';
+            }
+        });
+
+        // FAQ Accordion
+        function toggleFaq(button) {
+            const faqItem = button.closest('.faq-item');
+            const isActive = faqItem.classList.contains('active');
+            
+            // Close all other FAQ items
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+                item.querySelector('.faq-button span:last-child').textContent = '+';
+            });
+            
+            // Toggle current item
+            if (!isActive) {
+                faqItem.classList.add('active');
+                button.querySelector('span:last-child').textContent = '−';
+            }
+        }
+    </script>
+</body>
+
+</html>
