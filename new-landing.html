@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swarovski | Bespoke Jewelry & Crystal Decorations</title>
+    <meta name="description" content="Discover exquisite custom-made jewelry and signature crystal decorations. Masters of Light since 1895.">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            /* Luxury Color Palette */
+            --primary-color: #8F3552; /* Swarovski Red/Pink */
+            --hover-gold: #D4AF37;    /* Luxe Gold for hover */
+            --dark-bg: #0F0F0F;       /* Deep Black/Charcoal */
+            --light-bg: #FAF9F8;      /* Off-white */
+        }
+
+        /* Base Typography */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light-bg);
+            color: #262626;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Custom Scrollbar */
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* Mobile Menu Transitions */
+        #mobileMenu { transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1); }
+
+        /* Mobile Link Hover Animation */
+        .mobile-link {
+            transition: all 0.3s ease;
+        }
+        .mobile-link:hover {
+            padding-left: 10px;
+            color: var(--hover-gold);
+        }
+
+        /* Image Hover Zoom Effects */
+        .group:hover .img-zoom {
+            transform: scale(1.08);
+        }
+        .img-zoom {
+            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        /* Fade In Animation */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+             /* Custom clamp to ensure description doesn't break layout */
+         .line-clamp-2 {
+             display: -webkit-box;
+             -webkit-line-clamp: 2;
+             -webkit-box-orient: vertical;
+             overflow: hidden;
+         }
+
+    </style>
+
+</head>
+<body>
+
+<header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent">
+    <nav class="max-w-[1920px] mx-auto px-6 md:px-12 py-5 flex items-center justify-between">
+
+        <div class="flex-1 flex items-center justify-start">
+            <button id="mobileMenuBtn" class="lg:hidden text-white hover:text-gray-300 transition-colors z-50 relative">
+                <span class="sr-only">Menu</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+
+            <div class="hidden lg:flex gap-8 text-sm text-white font-light tracking-wide uppercase">
+                <a href="#new-in" class="hover:text-gray-300 transition-colors">New In</a>
+                <a href="#signature" class="hover:text-gray-300 transition-colors">Signature</a>
+                <a href="#bespoke" class="hover:text-gray-300 transition-colors">Bespoke</a>
+            </div>
+        </div>
+
+        <div class="flex-1 text-center z-50">
+            <a href="#" class="text-white text-2xl md:text-3xl font-normal tracking-[0.2em] font-serif uppercase relative z-50 transition-colors duration-300" id="mainLogo">
+                Swarovski
+            </a>
+        </div>
+
+        <div class="flex-1 flex items-center justify-end gap-6 text-white">
+            <button class="hover:opacity-70 transition-opacity hidden sm:block">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.35-4.35"></path>
+                </svg>
+            </button>
+            <button class="hover:opacity-70 transition-opacity relative">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                </svg>
+                <span class="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full"></span>
+            </button>
+        </div>
+    </nav>
+</header>
+
+<div id="mobileMenuOverlay" class="fixed inset-0 bg-black/60 z-40 hidden opacity-0 transition-opacity duration-300 backdrop-blur-sm"></div>
+<div id="mobileMenu" class="fixed top-0 left-0 bottom-0 w-[85%] max-w-sm bg-neutral-900 z-50 transform -translate-x-full shadow-2xl flex flex-col border-r border-white/10">
+    <div class="p-8 pt-24 flex-1 overflow-y-auto">
+        <nav class="flex flex-col space-y-8">
+            <div class="space-y-4">
+                <span class="text-xs font-bold text-gray-500 uppercase tracking-widest">Collections</span>
+                <a href="#new" class="mobile-link block text-3xl font-serif text-white">New In</a>
+                <a href="#signature" class="mobile-link block text-3xl font-serif text-white">Signature</a>
+                <a href="#custom" class="mobile-link block text-3xl font-serif text-white">Bespoke</a>
+            </div>
+
+            <hr class="border-white/10 my-4">
+
+            <div class="space-y-4">
+                <span class="text-xs font-bold text-gray-500 uppercase tracking-widest">Categories</span>
+                <a href="#" class="mobile-link block text-xl font-light text-gray-300">Jewelry</a>
+                <a href="#" class="mobile-link block text-xl font-light text-gray-300">Watches</a>
+                <a href="#" class="mobile-link block text-xl font-light text-gray-300">Decorations</a>
+                <a href="#" class="mobile-link block text-xl font-light text-gray-300">Gifts</a>
+            </div>
+        </nav>
+    </div>
+    <div class="p-8 bg-black border-t border-white/10">
+        <div class="flex flex-col gap-4">
+            <a href="#" class="text-sm text-gray-400 hover:text-white transition-colors flex items-center gap-2">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                Log In / Register
+            </a>
+            <a href="#" class="text-sm text-gray-400 hover:text-white transition-colors">Customer Care</a>
+        </div>
+    </div>
+</div>
+
+<section class="relative h-[90vh] w-full overflow-hidden bg-gray-900">
+    <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover opacity-80">
+        <source src="https://asset.swarovski.com/videos/f_auto,q_auto,w_1920,h_1080,c_fill/so_2.4,du_6/swa-cms/videos/2026_T1_SWA_BRAND_VD_HERO_CUTDOWN_HOR_10s_NOVO_VID_GL_23,97fps_H264/2026_T1_SWA_BRAND_VD_HERO_CUTDOWN_HOR_10s_NOVO_VID_GL_23,97fps_H264_TT.mp4" type="video/mp4">
+    </video>
+    <div class="absolute inset-0 bg-black/40"></div>
+
+    <div class="relative h-full flex flex-col justify-center items-center text-center px-6 md:px-12 pt-20">
+        <p class="text-white/90 text-sm md:text-base tracking-[0.2em] uppercase mb-4 fade-up">Valentine's Collection</p>
+        <h1 class="text-5xl md:text-7xl lg:text-8xl text-white font-serif mb-6 leading-tight fade-up" style="transition-delay: 100ms;">
+            Charming <br class="md:hidden"> Love
+        </h1>
+        <p class="text-white/80 text-lg md:text-xl font-light max-w-xl mx-auto mb-10 fade-up" style="transition-delay: 200ms;">
+            Celebrate the season with jewelry that is bold, joyful, and meticulously crafted.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 fade-up" style="transition-delay: 300ms;">
+            <a href="#signature" class="px-10 py-4 bg-white text-black text-sm uppercase tracking-widest hover:bg-gray-200 transition-colors">Shop Signature</a>
+            <a href="#custom" class="px-10 py-4 border border-white text-white text-sm uppercase tracking-widest hover:bg-white/10 transition-colors">Custom Inquiry</a>
+        </div>
+    </div>
+</section>
+
+<section id="custom" class="bg-[#0F0F0F] text-white py-24 px-6 md:px-12 overflow-hidden">
+    <div class="max-w-[1600px] mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-20 items-end">
+            <div>
+                <span class="text-[var(--primary-color)] uppercase tracking-widest text-sm font-semibold mb-4 block">The Atelier</span>
+                <h2 class="text-4xl md:text-6xl font-serif leading-tight">Mostly Custom,<br><span class="text-gray-500 italic">Uniquely Yours.</span></h2>
+            </div>
+            <div>
+                <p class="text-gray-400 text-lg font-light leading-relaxed max-w-xl">
+                    While we offer a select number of signature pieces, the heart of our craft lies in bespoke creation.
+                    We bring your vision to life through precision cutting and artistic design.
+                </p>
+                <a href="#" class="inline-block mt-8 text-white border-b border-white/30 pb-1 hover:border-white transition-all">Start a Custom Project →</a>
+            </div>
+        </div>
+
+        <div id="signature">
+            <div class="flex items-center justify-between mb-8">
+                <h3 class="text-2xl font-serif">The Signature Collection</h3>
+                <div class="flex gap-2">
+                    <button id="scrollLeft" class="p-3 border border-white/20 rounded-full hover:bg-white hover:text-black transition-all">←</button>
+                    <button id="scrollRight" class="p-3 border border-white/20 rounded-full hover:bg-white hover:text-black transition-all">→</button>
+                </div>
+            </div>
+
+            <div id="itemsContainer" class="flex gap-6 overflow-x-auto hide-scrollbar pb-8 snap-x snap-mandatory">
+                <div class="min-w-[280px] md:min-w-[350px] snap-start group cursor-pointer">
+                    <div class="aspect-[4/5] overflow-hidden bg-gray-800 relative mb-4">
+                        <img src="images/1.jpeg" class="img-zoom w-full h-full object-cover opacity-90 group-hover:opacity-100">
+                        <div class="absolute bottom-4 left-4 bg-white/90 text-black px-3 py-1 text-xs uppercase tracking-widest">Bestseller</div>
+                    </div>
+                    <h4 class="text-xl font-serif">Ethereal Band</h4>
+                    <p class="text-gray-500 text-sm mt-1">$350.00</p>
+                </div>
+                <div class="min-w-[280px] md:min-w-[350px] snap-start group cursor-pointer">
+                    <div class="aspect-[4/5] overflow-hidden bg-gray-800 relative mb-4">
+                        <img src="images/2.jpeg" class="img-zoom w-full h-full object-cover opacity-90 group-hover:opacity-100">
+                        <div class="absolute bottom-4 left-4 bg-white/90 text-black px-3 py-1 text-xs uppercase tracking-widest">Bestseller</div>
+                    </div>
+                    <h4 class="text-xl font-serif">Ethereal Band</h4>
+                    <p class="text-gray-500 text-sm mt-1">$350.00</p>
+                </div>
+                <div class="min-w-[280px] md:min-w-[350px] snap-start group cursor-pointer">
+                    <div class="aspect-[4/5] overflow-hidden bg-gray-800 relative mb-4">
+                        <img src="images/3.3.jpeg" class="img-zoom w-full h-full object-cover opacity-90 group-hover:opacity-100">
+                        <div class="absolute bottom-4 left-4 bg-white/90 text-black px-3 py-1 text-xs uppercase tracking-widest">Bestseller</div>
+                    </div>
+                    <h4 class="text-xl font-serif">Ethereal Band</h4>
+                    <p class="text-gray-500 text-sm mt-1">$350.00</p>
+                </div>
+                <div class="min-w-[280px] md:min-w-[350px] snap-start group cursor-pointer">
+                    <div class="aspect-[4/5] overflow-hidden bg-gray-800 relative mb-4">
+                        <img src="images/14.jpeg" class="img-zoom w-full h-full object-cover opacity-90 group-hover:opacity-100">
+                        <div class="absolute bottom-4 left-4 bg-white/90 text-black px-3 py-1 text-xs uppercase tracking-widest">Bestseller</div>
+                    </div>
+                    <h4 class="text-xl font-serif">Ethereal Band</h4>
+                    <p class="text-gray-500 text-sm mt-1">$350.00</p>
+                </div>
+                <div class="min-w-[280px] md:min-w-[350px] snap-start group cursor-pointer">
+                    <div class="aspect-[4/5] overflow-hidden bg-gray-800 relative mb-4">
+                        <img src="images/5.jpeg" class="img-zoom w-full h-full object-cover opacity-90 group-hover:opacity-100">
+                        <div class="absolute bottom-4 left-4 bg-white/90 text-black px-3 py-1 text-xs uppercase tracking-widest">Bestseller</div>
+                    </div>
+                    <h4 class="text-xl font-serif">Ethereal Band</h4>
+                    <p class="text-gray-500 text-sm mt-1">$350.00</p>
+                </div>
+                <div class="min-w-[280px] md:min-w-[350px] snap-start group cursor-pointer">
+                    <div class="aspect-[4/5] overflow-hidden bg-gray-800 relative mb-4">
+                        <img src="images/11.jpeg" class="img-zoom w-full h-full object-cover opacity-90 group-hover:opacity-100">
+                    </div>
+                    <h4 class="text-xl font-serif">Lumina Pendant</h4>
+                    <p class="text-gray-500 text-sm mt-1">$420.00</p>
+                </div>
+                <div class="min-w-[280px] md:min-w-[350px] snap-start group cursor-pointer">
+                    <div class="aspect-[4/5] overflow-hidden bg-gray-800 relative mb-4">
+                        <img src="images/12.jpeg" class="img-zoom w-full h-full object-cover opacity-90 group-hover:opacity-100">
+                    </div>
+                    <h4 class="text-xl font-serif">Eternal Rose</h4>
+                    <p class="text-gray-500 text-sm mt-1">$199.00</p>
+                </div>
+                <div class="min-w-[280px] md:min-w-[350px] snap-start group cursor-pointer">
+                    <div class="aspect-[4/5] overflow-hidden bg-gray-800 relative mb-4">
+                        <img src="images/13.jpeg" class="img-zoom w-full h-full object-cover opacity-90 group-hover:opacity-100">
+                    </div>
+                    <h4 class="text-xl font-serif">Tennis Bracelet</h4>
+                    <p class="text-gray-500 text-sm mt-1">$550.00</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-24 px-6 md:px-12 bg-[#FAF9F8] overflow-hidden">
+    <div class="max-w-[1600px] mx-auto">
+
+        <div class="relative mb-20 text-left">
+            <span class="text-[10px] md:text-xs uppercase tracking-[0.5em] text-[#8F3552] font-bold block mb-4">The Collections</span>
+            <h2 class="text-5xl md:text-7xl font-serif text-neutral-900 leading-none">Curated <span class="italic font-light text-neutral-500 text-4xl md:text-6xl">Categories</span></h2>
+            <div class="h-px w-24 bg-[#D4AF37] mt-8"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto lg:h-[850px]">
+
+            <a href="#" class="group relative overflow-hidden md:col-span-12 lg:col-span-5 lg:row-span-2 shadow-2xl bg-neutral-200 rounded-sm">
+                <img src="images/7.jpeg" class="img-parallax w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover:scale-110" alt="Necklaces">
+
+                <div class="absolute inset-0 bg-gradient-to-tr from-black/60 via-transparent to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-700"></div>
+
+                <div class="absolute bottom-12 left-10 z-10 text-left">
+                    <span class="premium-shadow text-white/90 text-[11px] uppercase tracking-[0.3em] block mb-3 font-medium">Exquisite Craft</span>
+                    <h3 class="premium-shadow text-4xl md:text-6xl font-serif text-white leading-none mb-6">Necklaces</h3>
+                    <div class="inline-flex items-center gap-3 text-white/80 group-hover:text-white transition-colors">
+                        <span class="text-xs uppercase tracking-widest border-b border-white/40 pb-1">Discover</span>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="group relative overflow-hidden md:col-span-12 lg:col-span-7 lg:row-span-1 shadow-xl rounded-sm">
+                <img src="images/6.jpeg" class="img-parallax w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover:scale-110" alt="Rings">
+                <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-700"></div>
+
+                <div class="absolute inset-0 flex items-end justify-start p-12 z-10">
+                    <div class="text-left">
+                        <h3 class="premium-shadow text-3xl md:text-5xl font-serif text-white mb-4">Engagement Rings</h3>
+                        <p class="premium-shadow text-white/80 text-xs uppercase tracking-widest">A Promise of Forever</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="group relative overflow-hidden md:col-span-6 lg:col-span-4 lg:row-span-1 shadow-xl rounded-sm">
+                <img src="images/8.jpeg" class="img-parallax w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover:scale-110" alt="Watches">
+                <div class="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-all duration-700"></div>
+
+                <div class="absolute bottom-8 left-8 z-10 text-left">
+                    <h3 class="premium-shadow text-2xl font-serif text-white uppercase tracking-wider mb-2">Timepieces</h3>
+                    <p class="text-white/60 text-[10px] uppercase tracking-[0.2em] opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">Precision Engineering</p>
+                </div>
+            </a>
+
+            <a href="#" class="group relative overflow-hidden md:col-span-6 lg:col-span-3 lg:row-span-1 shadow-xl rounded-sm">
+                <img src="https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?w=600&h=600&fit=crop" class="img-parallax w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover:scale-110" alt="Earrings">
+                <div class="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-all duration-700"></div>
+
+                <div class="absolute bottom-8 left-8 z-10 text-left">
+                    <h3 class="premium-shadow text-2xl font-serif text-white uppercase tracking-wider mb-2">Earrings</h3>
+                    <p class="text-white/60 text-[10px] uppercase tracking-[0.2em] opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">Statement Pairs</p>
+                </div>
+            </a>
+
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Premium Text Shadow - enhances legibility without looking "cheap" */
+    .premium-shadow {
+        text-shadow: 2px 4px 12px rgba(0, 0, 0, 0.6);
+    }
+
+    /* Slow Parallax Effect */
+    .img-parallax {
+        will-change: transform;
+    }
+
+    /* Custom layout for bento grid on desktop */
+    @media (min-width: 1024px) {
+        .lg\:grid-rows-2 {
+            grid-template-rows: repeat(2, minmax(0, 1fr));
+        }
+    }
+</style>
+
+
+
+
+<section id="signature-collection" class="bg-neutral-900 text-white py-24 px-6 md:px-12">
+    <div class="max-w-[1600px] mx-auto">
+
+        <div class="text-center mb-20">
+            <span class="text-[var(--primary-color)] uppercase tracking-[0.4em] text-xs font-bold block mb-4">The Signature Twelve</span>
+            <h2 class="text-4xl md:text-6xl font-serif mb-6">Signature Collection</h2>
+            <p class="text-gray-400 font-light max-w-2xl mx-auto">Our exclusive twelve standard items, meticulously maintained in our atelier for those who seek timeless elegance.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16">
+
+            <div class="group relative flex flex-col bg-transparent">
+
+                <div class="relative aspect-[3/4] overflow-hidden bg-[#151515] cursor-pointer">
+                    <div class="absolute top-4 left-4 z-20">
+                <span class="text-[10px] uppercase tracking-[0.2em] bg-white/10 backdrop-blur-md text-white border border-white/20 px-3 py-1">
+                    Fine Jewelry
+                </span>
+                    </div>
+
+                    <img src="images/1.jpeg"
+                         alt="Product Front"
+                         class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out group-hover:opacity-0">
+
+                    <img src="images/1.1.jpeg"
+                         alt="Product Detail"
+                         class="absolute inset-0 w-full h-full object-cover opacity-0 scale-110 transition-all duration-1000 ease-in-out group-hover:opacity-100 group-hover:scale-100">
+
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                    <div class="absolute bottom-0 left-0 w-full p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-30">
+                        <button class="w-full bg-white text-black py-4 text-xs uppercase tracking-[0.2em] font-semibold hover:bg-[#8F3552] hover:text-white transition-colors duration-300">
+                            Add to Bag
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mt-6 flex flex-col space-y-2">
+                    <div class="flex justify-between items-start">
+                        <h3 class="font-serif text-xl text-white tracking-wide group-hover:text-[#D4AF37] transition-colors duration-300">
+                            Millenia Octagon
+                        </h3>
+                        <span class="text-white font-light tracking-wider">$350.00</span>
+                    </div>
+
+                    <p class="text-gray-500 text-sm font-light line-clamp-2 leading-relaxed">
+                        A masterclass in precision-cut crystals, featuring a rhodium-plated setting for a timeless shine.
+                    </p>
+
+                    <div class="pt-4 flex items-center justify-between border-t border-white/10 mt-2">
+                        <div class="flex items-center space-x-2">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                    </span>
+                            <span class="text-[10px] uppercase tracking-widest text-gray-400">
+                        8 Pieces in Stock
+                    </span>
+                        </div>
+                        <span class="text-[10px] uppercase tracking-widest text-[#D4AF37] font-medium">
+                    Signature Item
+                </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="group relative flex flex-col bg-transparent">
+
+                <div class="relative aspect-[3/4] overflow-hidden bg-[#151515] cursor-pointer">
+                    <div class="absolute top-4 left-4 z-20">
+                <span class="text-[10px] uppercase tracking-[0.2em] bg-white/10 backdrop-blur-md text-white border border-white/20 px-3 py-1">
+                    Fine Jewelry
+                </span>
+                    </div>
+
+                    <img src="images/2.jpeg"
+                         alt="Product Front"
+                         class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out group-hover:opacity-0">
+
+                    <img src="images/2.2.jpeg"
+                         alt="Product Detail"
+                         class="absolute inset-0 w-full h-full object-cover opacity-0 scale-110 transition-all duration-1000 ease-in-out group-hover:opacity-100 group-hover:scale-100">
+
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                    <div class="absolute bottom-0 left-0 w-full p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-30">
+                        <button class="w-full bg-white text-black py-4 text-xs uppercase tracking-[0.2em] font-semibold hover:bg-[#8F3552] hover:text-white transition-colors duration-300">
+                            Add to Bag
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mt-6 flex flex-col space-y-2">
+                    <div class="flex justify-between items-start">
+                        <h3 class="font-serif text-xl text-white tracking-wide group-hover:text-[#D4AF37] transition-colors duration-300">
+                            Millenia Octagon
+                        </h3>
+                        <span class="text-white font-light tracking-wider">$350.00</span>
+                    </div>
+
+                    <p class="text-gray-500 text-sm font-light line-clamp-2 leading-relaxed">
+                        A masterclass in precision-cut crystals, featuring a rhodium-plated setting for a timeless shine.
+                    </p>
+
+                    <div class="pt-4 flex items-center justify-between border-t border-white/10 mt-2">
+                        <div class="flex items-center space-x-2">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                    </span>
+                            <span class="text-[10px] uppercase tracking-widest text-gray-400">
+                        8 Pieces in Stock
+                    </span>
+                        </div>
+                        <span class="text-[10px] uppercase tracking-widest text-[#D4AF37] font-medium">
+                    Signature Item
+                </span>
+                    </div>
+                </div>
+            </div>
+            <div class="group relative flex flex-col bg-transparent">
+
+                <div class="relative aspect-[3/4] overflow-hidden bg-[#151515] cursor-pointer">
+                    <div class="absolute top-4 left-4 z-20">
+                <span class="text-[10px] uppercase tracking-[0.2em] bg-white/10 backdrop-blur-md text-white border border-white/20 px-3 py-1">
+                    Fine Jewelry
+                </span>
+                    </div>
+
+                    <img src="images/3.jpeg"
+                         alt="Product Front"
+                         class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out group-hover:opacity-0">
+
+                    <img src="images/3.3.jpeg"
+                         alt="Product Detail"
+                         class="absolute inset-0 w-full h-full object-cover opacity-0 scale-110 transition-all duration-1000 ease-in-out group-hover:opacity-100 group-hover:scale-100">
+
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                    <div class="absolute bottom-0 left-0 w-full p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-30">
+                        <button class="w-full bg-white text-black py-4 text-xs uppercase tracking-[0.2em] font-semibold hover:bg-[#8F3552] hover:text-white transition-colors duration-300">
+                            Add to Bag
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mt-6 flex flex-col space-y-2">
+                    <div class="flex justify-between items-start">
+                        <h3 class="font-serif text-xl text-white tracking-wide group-hover:text-[#D4AF37] transition-colors duration-300">
+                            Millenia Octagon
+                        </h3>
+                        <span class="text-white font-light tracking-wider">$350.00</span>
+                    </div>
+
+                    <p class="text-gray-500 text-sm font-light line-clamp-2 leading-relaxed">
+                        A masterclass in precision-cut crystals, featuring a rhodium-plated setting for a timeless shine.
+                    </p>
+
+                    <div class="pt-4 flex items-center justify-between border-t border-white/10 mt-2">
+                        <div class="flex items-center space-x-2">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                    </span>
+                            <span class="text-[10px] uppercase tracking-widest text-gray-400">
+                        8 Pieces in Stock
+                    </span>
+                        </div>
+                        <span class="text-[10px] uppercase tracking-widest text-[#D4AF37] font-medium">
+                    Signature Item
+                </span>
+                    </div>
+                </div>
+            </div>
+            <div class="group relative flex flex-col bg-transparent">
+
+                <div class="relative aspect-[3/4] overflow-hidden bg-[#151515] cursor-pointer">
+                    <div class="absolute top-4 left-4 z-20">
+                <span class="text-[10px] uppercase tracking-[0.2em] bg-white/10 backdrop-blur-md text-white border border-white/20 px-3 py-1">
+                    Fine Jewelry
+                </span>
+                    </div>
+
+                    <img src="images/4.jpeg"
+                         alt="Product Front"
+                         class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out group-hover:opacity-0">
+
+                    <img src="images/4.4.jpeg"
+                         alt="Product Detail"
+                         class="absolute inset-0 w-full h-full object-cover opacity-0 scale-110 transition-all duration-1000 ease-in-out group-hover:opacity-100 group-hover:scale-100">
+
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                    <div class="absolute bottom-0 left-0 w-full p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-30">
+                        <button class="w-full bg-white text-black py-4 text-xs uppercase tracking-[0.2em] font-semibold hover:bg-[#8F3552] hover:text-white transition-colors duration-300">
+                            Add to Bag
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mt-6 flex flex-col space-y-2">
+                    <div class="flex justify-between items-start">
+                        <h3 class="font-serif text-xl text-white tracking-wide group-hover:text-[#D4AF37] transition-colors duration-300">
+                            Millenia Octagon
+                        </h3>
+                        <span class="text-white font-light tracking-wider">$350.00</span>
+                    </div>
+
+                    <p class="text-gray-500 text-sm font-light line-clamp-2 leading-relaxed">
+                        A masterclass in precision-cut crystals, featuring a rhodium-plated setting for a timeless shine.
+                    </p>
+
+                    <div class="pt-4 flex items-center justify-between border-t border-white/10 mt-2">
+                        <div class="flex items-center space-x-2">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                    </span>
+                            <span class="text-[10px] uppercase tracking-widest text-gray-400">
+                        8 Pieces in Stock
+                    </span>
+                        </div>
+                        <span class="text-[10px] uppercase tracking-widest text-[#D4AF37] font-medium">
+                    Signature Item
+                </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="group relative flex flex-col bg-transparent">
+
+                <div class="relative aspect-[3/4] overflow-hidden bg-[#151515] cursor-pointer">
+                    <div class="absolute top-4 left-4 z-20">
+                <span class="text-[10px] uppercase tracking-[0.2em] bg-white/10 backdrop-blur-md text-white border border-white/20 px-3 py-1">
+                    Fine Jewelry
+                </span>
+                    </div>
+
+                    <img src="images/5.jpeg"
+                         alt="Product Front"
+                         class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out group-hover:opacity-0">
+
+                    <img src="images/5.5.jpeg"
+                         alt="Product Detail"
+                         class="absolute inset-0 w-full h-full object-cover opacity-0 scale-110 transition-all duration-1000 ease-in-out group-hover:opacity-100 group-hover:scale-100">
+
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                    <div class="absolute bottom-0 left-0 w-full p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-30">
+                        <button class="w-full bg-white text-black py-4 text-xs uppercase tracking-[0.2em] font-semibold hover:bg-[#8F3552] hover:text-white transition-colors duration-300">
+                            Add to Bag
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mt-6 flex flex-col space-y-2">
+                    <div class="flex justify-between items-start">
+                        <h3 class="font-serif text-xl text-white tracking-wide group-hover:text-[#D4AF37] transition-colors duration-300">
+                            Millenia Octagon
+                        </h3>
+                        <span class="text-white font-light tracking-wider">$350.00</span>
+                    </div>
+
+                    <p class="text-gray-500 text-sm font-light line-clamp-2 leading-relaxed">
+                        A masterclass in precision-cut crystals, featuring a rhodium-plated setting for a timeless shine.
+                    </p>
+
+                    <div class="pt-4 flex items-center justify-between border-t border-white/10 mt-2">
+                        <div class="flex items-center space-x-2">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                    </span>
+                            <span class="text-[10px] uppercase tracking-widest text-gray-400">
+                        8 Pieces in Stock
+                    </span>
+                        </div>
+                        <span class="text-[10px] uppercase tracking-widest text-[#D4AF37] font-medium">
+                    Signature Item
+                </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="group relative flex flex-col bg-transparent">
+
+                <div class="relative aspect-[3/4] overflow-hidden bg-[#151515] cursor-pointer">
+                    <div class="absolute top-4 left-4 z-20">
+                <span class="text-[10px] uppercase tracking-[0.2em] bg-white/10 backdrop-blur-md text-white border border-white/20 px-3 py-1">
+                    Fine Jewelry
+                </span>
+                    </div>
+
+                    <img src="images/5.jpeg"
+                         alt="Product Front"
+                         class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out group-hover:opacity-0">
+
+                    <img src="images/5.5.jpeg"
+                         alt="Product Detail"
+                         class="absolute inset-0 w-full h-full object-cover opacity-0 scale-110 transition-all duration-1000 ease-in-out group-hover:opacity-100 group-hover:scale-100">
+
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                    <div class="absolute bottom-0 left-0 w-full p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-30">
+                        <button class="w-full bg-white text-black py-4 text-xs uppercase tracking-[0.2em] font-semibold hover:bg-[#8F3552] hover:text-white transition-colors duration-300">
+                            Add to Bag
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mt-6 flex flex-col space-y-2">
+                    <div class="flex justify-between items-start">
+                        <h3 class="font-serif text-xl text-white tracking-wide group-hover:text-[#D4AF37] transition-colors duration-300">
+                            Millenia Octagon
+                        </h3>
+                        <span class="text-white font-light tracking-wider">$350.00</span>
+                    </div>
+
+                    <p class="text-gray-500 text-sm font-light line-clamp-2 leading-relaxed">
+                        A masterclass in precision-cut crystals, featuring a rhodium-plated setting for a timeless shine.
+                    </p>
+
+                    <div class="pt-4 flex items-center justify-between border-t border-white/10 mt-2">
+                        <div class="flex items-center space-x-2">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                    </span>
+                            <span class="text-[10px] uppercase tracking-widest text-gray-400">
+                        8 Pieces in Stock
+                    </span>
+                        </div>
+                        <span class="text-[10px] uppercase tracking-widest text-[#D4AF37] font-medium">
+                    Signature Item
+                </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="group relative flex flex-col bg-transparent">
+
+                <div class="relative aspect-[3/4] overflow-hidden bg-[#151515] cursor-pointer">
+                    <div class="absolute top-4 left-4 z-20">
+                <span class="text-[10px] uppercase tracking-[0.2em] bg-white/10 backdrop-blur-md text-white border border-white/20 px-3 py-1">
+                    Fine Jewelry
+                </span>
+                    </div>
+
+                    <img src="images/5.jpeg"
+                         alt="Product Front"
+                         class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out group-hover:opacity-0">
+
+                    <img src="images/5.5.jpeg"
+                         alt="Product Detail"
+                         class="absolute inset-0 w-full h-full object-cover opacity-0 scale-110 transition-all duration-1000 ease-in-out group-hover:opacity-100 group-hover:scale-100">
+
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                    <div class="absolute bottom-0 left-0 w-full p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-30">
+                        <button class="w-full bg-white text-black py-4 text-xs uppercase tracking-[0.2em] font-semibold hover:bg-[#8F3552] hover:text-white transition-colors duration-300">
+                            Add to Bag
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mt-6 flex flex-col space-y-2">
+                    <div class="flex justify-between items-start">
+                        <h3 class="font-serif text-xl text-white tracking-wide group-hover:text-[#D4AF37] transition-colors duration-300">
+                            Millenia Octagon
+                        </h3>
+                        <span class="text-white font-light tracking-wider">$350.00</span>
+                    </div>
+
+                    <p class="text-gray-500 text-sm font-light line-clamp-2 leading-relaxed">
+                        A masterclass in precision-cut crystals, featuring a rhodium-plated setting for a timeless shine.
+                    </p>
+
+                    <div class="pt-4 flex items-center justify-between border-t border-white/10 mt-2">
+                        <div class="flex items-center space-x-2">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                    </span>
+                            <span class="text-[10px] uppercase tracking-widest text-gray-400">
+                        8 Pieces in Stock
+                    </span>
+                        </div>
+                        <span class="text-[10px] uppercase tracking-widest text-[#D4AF37] font-medium">
+                    Signature Item
+                </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="group relative flex flex-col bg-transparent">
+
+                <div class="relative aspect-[3/4] overflow-hidden bg-[#151515] cursor-pointer">
+                    <div class="absolute top-4 left-4 z-20">
+                <span class="text-[10px] uppercase tracking-[0.2em] bg-white/10 backdrop-blur-md text-white border border-white/20 px-3 py-1">
+                    Fine Jewelry
+                </span>
+                    </div>
+
+                    <img src="images/5.jpeg"
+                         alt="Product Front"
+                         class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out group-hover:opacity-0">
+
+                    <img src="images/5.5.jpeg"
+                         alt="Product Detail"
+                         class="absolute inset-0 w-full h-full object-cover opacity-0 scale-110 transition-all duration-1000 ease-in-out group-hover:opacity-100 group-hover:scale-100">
+
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                    <div class="absolute bottom-0 left-0 w-full p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-30">
+                        <button class="w-full bg-white text-black py-4 text-xs uppercase tracking-[0.2em] font-semibold hover:bg-[#8F3552] hover:text-white transition-colors duration-300">
+                            Add to Bag
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mt-6 flex flex-col space-y-2">
+                    <div class="flex justify-between items-start">
+                        <h3 class="font-serif text-xl text-white tracking-wide group-hover:text-[#D4AF37] transition-colors duration-300">
+                            Millenia Octagon
+                        </h3>
+                        <span class="text-white font-light tracking-wider">$350.00</span>
+                    </div>
+
+                    <p class="text-gray-500 text-sm font-light line-clamp-2 leading-relaxed">
+                        A masterclass in precision-cut crystals, featuring a rhodium-plated setting for a timeless shine.
+                    </p>
+
+                    <div class="pt-4 flex items-center justify-between border-t border-white/10 mt-2">
+                        <div class="flex items-center space-x-2">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                    </span>
+                            <span class="text-[10px] uppercase tracking-widest text-gray-400">
+                        8 Pieces in Stock
+                    </span>
+                        </div>
+                        <span class="text-[10px] uppercase tracking-widest text-[#D4AF37] font-medium">
+                    Signature Item
+                </span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section id="bespoke" class="bg-[#0F0F0F] text-white py-24 px-6 md:px-12">
+    <div class="max-w-[1400px] mx-auto grid lg:grid-cols-2 gap-16 items-center">
+        <div>
+            <span class="text-[#8F3552] uppercase tracking-widest text-sm mb-4 block font-bold">Bespoke Service</span>
+            <h2 class="text-5xl md:text-6xl font-serif mb-8">Mostly everything is <span class="italic text-gray-500">custom-made.</span></h2>
+            <p class="text-gray-400 text-lg font-light leading-relaxed mb-10">We specialize in one-of-a-kind masterpieces. Beyond our 12 signature items, every piece is a collaboration between your vision and our craftsmanship.</p>
+            <button class="border border-white px-10 py-4 hover:bg-white hover:text-black transition-all uppercase tracking-widest text-sm">Start Your Design</button>
+        </div>
+        <div class="relative aspect-square overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1584302179602-e4c3d3fd629d?w=800&h=800&fit=crop" class="w-full h-full object-cover opacity-80">
+        </div>
+    </div>
+</section>
+
+<section class="py-24 bg-neutral-900 text-white">
+    <div class="max-w-[1600px] mx-auto px-6 md:px-12">
+        <div class="relative flex flex-col lg:flex-row items-center">
+            <div class="w-full lg:w-3/5 relative z-10">
+                <div class="relative aspect-[16/9] overflow-hidden shadow-2xl">
+                    <img src="images/5.jpeg" class="w-full h-full object-cover opacity-80" alt="Gifting">
+                </div>
+            </div>
+            <div class="w-full lg:w-2/5 lg:-ml-24 relative z-20 mt-8 lg:mt-0">
+                <div class="bg-[#1a1a1a] border border-white/5 p-8 md:p-12 lg:p-16 shadow-2xl backdrop-blur-sm">
+                    <span class="text-xs uppercase tracking-[0.3em] text-[var(--primary-color)] mb-6 block">Curated Selection</span>
+                    <h2 class="text-3xl md:text-5xl font-serif mb-6 leading-tight">The Art of <br> Gifting</h2>
+                    <p class="text-gray-400 font-light mb-8 leading-relaxed">
+                        Express your love with our exquisite collections, curated for moments that matter.
+                        Give a gift that shines as bright as they do.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button class="px-8 py-3 bg-white text-black text-sm uppercase tracking-widest hover:bg-gray-200 transition-all">Shop Gifts</button>
+                        <button class="px-8 py-3 border border-white/30 text-white text-sm uppercase tracking-widest hover:bg-white hover:text-black transition-all">Gift Guide</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<footer class="bg-black text-gray-400 pt-20 pb-12 px-6 md:px-12 border-t border-gray-900 relative overflow-hidden">
+    <div class="max-w-[1600px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 text-sm font-light relative z-10">
+        <div class="space-y-6">
+            <a href="#" class="text-white text-2xl font-serif tracking-widest uppercase">Swarovski</a>
+            <p class="leading-relaxed text-gray-500 max-w-xs">
+                Crafting brilliance since 1895. We bring sparkle to people's everyday lives.
+            </p>
+        </div>
+
+        <div class="space-y-4">
+            <h4 class="text-white font-medium uppercase tracking-widest text-xs mb-6">Client Services</h4>
+            <p><a href="#" class="hover:text-white transition-colors block py-1">Contact Us</a></p>
+            <p><a href="#" class="hover:text-white transition-colors block py-1">Shipping & Returns</a></p>
+            <p><a href="#" class="hover:text-white transition-colors block py-1">Care Advice</a></p>
+            <p><a href="#" class="hover:text-white transition-colors block py-1">Track Order</a></p>
+        </div>
+
+        <div class="space-y-4">
+            <h4 class="text-white font-medium uppercase tracking-widest text-xs mb-6">The House</h4>
+            <p><a href="#" class="hover:text-white transition-colors block py-1">Our Heritage</a></p>
+            <p><a href="#" class="hover:text-white transition-colors block py-1">Sustainability</a></p>
+            <p><a href="#" class="hover:text-white transition-colors block py-1">Careers</a></p>
+            <p><a href="#" class="hover:text-white transition-colors block py-1">Legal</a></p>
+        </div>
+
+        <div class="space-y-6">
+            <h4 class="text-white font-medium uppercase tracking-widest text-xs">Newsletter</h4>
+            <p class="text-xs text-gray-500">Be the first to receive updates on new collections.</p>
+            <div class="flex border-b border-gray-800 pb-2">
+                <input type="email" placeholder="Your Email" class="bg-transparent w-full outline-none text-white placeholder-gray-600 text-sm">
+                <button class="uppercase text-xs tracking-widest text-white hover:text-[var(--primary-color)] transition-colors">Join</button>
+            </div>
+            <div class="flex gap-4 pt-4">
+                <a href="#" class="hover:text-white transition-colors">IG</a>
+                <a href="#" class="hover:text-white transition-colors">FB</a>
+                <a href="#" class="hover:text-white transition-colors">YT</a>
+                <a href="#" class="hover:text-white transition-colors">TT</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="max-w-[1600px] mx-auto mt-24 pt-8 border-t border-gray-900 flex flex-col md:flex-row justify-between items-center relative z-10">
+        <p class="text-xs text-gray-600">&copy; 2026 Swarovski. All rights reserved.</p>
+        <div class="flex gap-6 text-xs text-gray-600 mt-4 md:mt-0">
+            <a href="#" class="hover:text-gray-400">Privacy</a>
+            <a href="#" class="hover:text-gray-400">Terms</a>
+        </div>
+    </div>
+
+    <div class="absolute bottom-0 left-0 w-full overflow-hidden pointer-events-none opacity-[0.03]">
+        <h1 class="text-[10vw] leading-none font-serif text-white text-center tracking-widest whitespace-nowrap">MAGNETICFLOW</h1>
+    </div>
+</footer>
+
+<script>
+    // --- Mobile Menu Logic ---
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const overlay = document.getElementById('mobileMenuOverlay');
+    const body = document.body;
+    let isMenuOpen = false;
+
+    function toggleMenu() {
+        isMenuOpen = !isMenuOpen;
+        if (isMenuOpen) {
+            mobileMenu.classList.remove('-translate-x-full');
+            overlay.classList.remove('hidden');
+            setTimeout(() => overlay.classList.remove('opacity-0'), 10);
+            body.style.overflow = 'hidden';
+            // Close Icon
+            mobileMenuBtn.innerHTML = `<svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`;
+            mobileMenuBtn.classList.add('text-white');
+        } else {
+            mobileMenu.classList.add('-translate-x-full');
+            overlay.classList.add('opacity-0');
+            setTimeout(() => overlay.classList.add('hidden'), 300);
+            body.style.overflow = '';
+            // Hamburger Icon
+            mobileMenuBtn.innerHTML = `<svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>`;
+            // Reset color based on scroll position
+            if(window.scrollY > 50) mobileMenuBtn.classList.remove('text-white');
+        }
+    }
+
+    mobileMenuBtn.addEventListener('click', toggleMenu);
+    overlay.addEventListener('click', toggleMenu);
+
+    // --- Scroll Header Logic ---
+    const header = document.getElementById('header');
+    const logo = document.getElementById('mainLogo');
+    const navLinks = document.querySelectorAll('nav a, nav button');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            // Scrolled: White BG, Black Text
+            header.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-sm');
+            header.classList.remove('border-transparent');
+            logo.classList.remove('text-white'); logo.classList.add('text-black');
+            navLinks.forEach(el => { el.classList.remove('text-white'); el.classList.add('text-black'); });
+            if(!isMenuOpen) { mobileMenuBtn.classList.remove('text-white'); mobileMenuBtn.classList.add('text-black'); }
+        } else {
+            // Top: Transparent, White Text
+            header.classList.remove('bg-white/95', 'backdrop-blur-md', 'shadow-sm');
+            header.classList.add('border-transparent');
+            logo.classList.add('text-white'); logo.classList.remove('text-black');
+            navLinks.forEach(el => { el.classList.add('text-white'); el.classList.remove('text-black'); });
+            if(!isMenuOpen) { mobileMenuBtn.classList.add('text-white'); mobileMenuBtn.classList.remove('text-black'); }
+        }
+    });
+
+    // --- Horizontal Scroll Logic ---
+    document.getElementById('scrollLeft').onclick = () => document.getElementById('itemsContainer').scrollBy({left:-320, behavior:'smooth'});
+    document.getElementById('scrollRight').onclick = () => document.getElementById('itemsContainer').scrollBy({left:320, behavior:'smooth'});
+
+    // --- Animation Observer ---
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

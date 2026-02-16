@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magnetic Flow - </title>
+    <meta name="description" content="Discover exquisite custom-made jewelry and signature crystal decorations. Masters of Light since 1895.">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            /* Luxury Dark Color Palette */
+            --primary-color: #D4AF37;   /* Luxe Gold */
+            --secondary-color: #8F3552; /* Deep Rose/Pink */
+            --dark-bg: #0a0a0a;         /* Deep Black */
+            --dark-secondary: #1a1a1a;  /* Charcoal */
+            --light-text: #f5f5f5;      /* Off-white */
+            --accent-gold: #C9A961;     /* Warm Gold */
+        }
+
+        /* Base Typography */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--dark-secondary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-gold);
+        }
+
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* Transitions */
+        #mobileMenu { transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1); }
+
+        .mobile-link {
+            transition: all 0.3s ease;
+        }
+
+        .mobile-link:hover {
+            padding-left: 10px;
+            color: var(--primary-color);
+        }
+
+        /* Image Effects */
+        .group:hover .img-zoom {
+            transform: scale(1.08);
+        }
+
+        .img-zoom {
+            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        /* Animations */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .line-clamp-2 {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* Language Selector */
+        .lang-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .lang-dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: var(--dark-secondary);
+            min-width: 120px;
+            box-shadow: 0 8px 16px rgba(212, 175, 55, 0.2);
+            padding: 8px 0;
+            z-index: 1;
+            border: 1px solid var(--primary-color);
+            border-radius: 4px;
+            top: 100%;
+            margin-top: 8px;
+        }
+
+        .lang-dropdown-content a {
+            color: var(--light-text);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .lang-dropdown-content a:hover {
+            background-color: rgba(212, 175, 55, 0.1);
+            color: var(--primary-color);
+        }
+
+        .lang-dropdown-content a.active {
+            color: var(--primary-color);
+            background-color: rgba(212, 175, 55, 0.1);
+        }
+
+        .lang-dropdown:hover .lang-dropdown-content {
+            display: block;
+        }
+
+        /* Cards */
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.15);
+        }
+
+        /* Buttons */
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--dark-bg);
+            padding: 12px 32px;
+            border: none;
+            border-radius: 2px;
+            font-weight: 600;
+            font-size: 13px;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-gold);
+            transform: scale(1.02);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--light-text);
+            padding: 12px 32px;
+            border: 1px solid var(--primary-color);
+            border-radius: 2px;
+            font-weight: 600;
+            font-size: 13px;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary-color);
+            color: var(--dark-bg);
+        }
+
+        /* Section Title */
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+            letter-spacing: 2px;
+        }
+
+        .section-title .divider {
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--primary-color), transparent);
+            margin: 16px auto;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .section-title h2 {
+                font-size: 1.75rem;
+            }
+
+            body {
+                font-size: 14px;
+            }
+
+            h1, h2, h3 {
+                line-height: 1.3;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-title h2 {
+                font-size: 1.5rem;
+            }
+
+            .btn-primary, .btn-secondary {
+                width: 100%;
+                padding: 14px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER & NAVIGATION -->
+<header id="header" class="fixed top-0 left-0 right-0 z-50 bg-var(--dark-bg) transition-all duration-300 border-b border-[rgba(212,175,55,0.1)]">
+    <nav class="max-w-7xl mx-auto px-4 md:px-6 py-5 flex items-center justify-between">
+
+        <!-- Mobile Menu Button -->
+        <button id="mobileMenuBtn" class="lg:hidden text-white hover:text-[var(--primary-color)] transition-colors z-50 relative p-2">
+            <span class="sr-only">Menu</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+        </button>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden lg:flex gap-12 text-sm text-white font-light tracking-wide uppercase flex-1">
+            <a href="#new-in" class="hover:text-[var(--primary-color)] transition-colors" data-en="New In" data-es="Nuevos">New In</a>
+            <a href="#signature" class="hover:text-[var(--primary-color)] transition-colors" data-en="Collections" data-es="Colecciones">Collections</a>
+            <a href="#bespoke" class="hover:text-[var(--primary-color)] transition-colors" data-en="Bespoke" data-es="Personalizado">Bespoke</a>
+            <a href="#about" class="hover:text-[var(--primary-color)] transition-colors" data-en="About" data-es="Acerca de">About</a>
+        </div>
+
+        <!-- Logo -->
+        <div class="flex-1 text-center z-50">
+            <a href="#" class="text-white text-2xl md:text-3xl font-normal tracking-[0.2em] font-serif uppercase relative z-50 transition-colors duration-300 hover:text-[var(--primary-color)]">
+                <img src="logo-removebg-preview.png" alt="" width="300px" class="mx-auto">
+            </a>
+        </div>
+
+        <!-- Right Navigation -->
+        <div class="flex-1 flex items-center justify-end gap-4 md:gap-6 text-white">
+            <!-- Language Selector -->
+            <div class="lang-dropdown">
+                <button id="langBtn" class="flex items-center gap-1 text-xs md:text-sm hover:text-[var(--primary-color)] transition-colors uppercase tracking-widest">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                    </svg>
+                    <span id="currentLang" data-en="EN" data-es="ES">EN</span>
+                </button>
+                <div class="lang-dropdown-content">
+                    <a href="#" class="lang-option active" data-lang="en" data-en="English" data-es="Inglés">English</a>
+                    <a href="#" class="lang-option" data-lang="es" data-en="Español" data-es="Español">Español</a>
+                </div>
+            </div>
+
+            <!-- Search Button -->
+            <button class="hover:text-[var(--primary-color)] transition-colors hidden sm:block p-2">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.35-4.35"></path>
+                </svg>
+            </button>
+
+            <!-- Cart Button -->
+            <button class="hover:text-[var(--primary-color)] transition-colors relative p-2">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                </svg>
+                <span class="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full"></span>
+            </button>
+        </div>
+    </nav>
+</header>
+
+<!-- MOBILE MENU OVERLAY -->
+<div id="mobileMenuOverlay" class="fixed inset-0 bg-black/60 z-40 hidden opacity-0 transition-opacity duration-300 backdrop-blur-sm"></div>
+
+<!-- MOBILE MENU -->
+<div id="mobileMenu" class="fixed top-0 left-0 bottom-0 w-[85%] max-w-sm bg-[var(--dark-secondary)] z-50 transform -translate-x-full shadow-2xl flex flex-col border-r border-[rgba(212,175,55,0.2)]">
+    <div class="p-6 pt-24 flex-1 overflow-y-auto">
+        <nav class="flex flex-col space-y-8">
+            <div class="space-y-4">
+                <span class="text-xs font-bold text-gray-500 uppercase tracking-widest" data-en="Collections" data-es="Colecciones">Collections</span>
+                <a href="#new-in" class="mobile-link block text-2xl font-serif text-white" data-en="New In" data-es="Nuevos">New In</a>
+                <a href="#signature" class="mobile-link block text-2xl font-serif text-white" data-en="Collections" data-es="Colecciones">Collections</a>
+                <a href="#bespoke" class="mobile-link block text-2xl font-serif text-white" data-en="Bespoke" data-es="Personalizado">Bespoke</a>
+            </div>
+
+            <hr class="border-[rgba(212,175,55,0.1)] my-4">
+
+            <div class="space-y-4">
+                <span class="text-xs font-bold text-gray-500 uppercase tracking-widest" data-en="Categories" data-es="Categorías">Categories</span>
+                <a href="#" class="mobile-link block text-lg font-light text-gray-300" data-en="Jewelry" data-es="Joyas">Jewelry</a>
+                <a href="#" class="mobile-link block text-lg font-light text-gray-300" data-en="Watches" data-es="Relojes">Watches</a>
+                <a href="#" class="mobile-link block text-lg font-light text-gray-300" data-en="Decorations" data-es="Decoraciones">Decorations</a>
+                <a href="#" class="mobile-link block text-lg font-light text-gray-300" data-en="Gifts" data-es="Regalos">Gifts</a>
+            </div>
+        </nav>
+    </div>
+    <div class="p-6 bg-[#000000] border-t border-[rgba(212,175,55,0.1)]">
+        <div class="flex flex-col gap-4">
+            <a href="#" class="text-sm text-gray-400 hover:text-[var(--primary-color)] transition-colors flex items-center gap-2" data-en="Log In / Register" data-es="Iniciar Sesión / Registrarse">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                Log In / Register
+            </a>
+            <a href="#" class="text-sm text-gray-400 hover:text-[var(--primary-color)] transition-colors" data-en="Customer Care" data-es="Servicio al Cliente">Customer Care</a>
+        </div>
+    </div>
+</div>
+
+<!-- HERO SECTION -->
+<section class="relative h-screen w-full overflow-hidden bg-[var(--dark-secondary)] mt-20 md:mt-0">
+    <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover opacity-60">
+        <source src="https://asset.swarovski.com/videos/f_auto,q_auto,w_1920,h_1080,c_fill/so_2.4,du_6/swa-cms/videos/2026_T1_SWA_BRAND_VD_HERO_CUTDOWN_HOR_10s_NOVO_VID_GL_23,97fps_H264/2026_T1_SWA_BRAND_VD_HERO_CUTDOWN_HOR_10s_NOVO_VID_GL_23,97fps_H264_TT.mp4" type="video/mp4">
+    </video>
+    <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-[var(--dark-bg)]"></div>
+
+    <div class="relative h-full flex flex-col justify-center items-center text-center px-4 md:px-12 pt-16 md:pt-20">
+        <p class="text-white/80 text-xs md:text-base tracking-[0.2em] uppercase mb-4 fade-up" data-en="Valentine's Collection" data-es="Colección de San Valentín">Valentine's Collection</p>
+        <h1 class="text-4xl md:text-6xl lg:text-7xl text-white font-serif mb-6 leading-tight fade-up" style="transition-delay: 100ms;" data-en="Charming Love" data-es="Amor Encantador">
+            Charming <br class="md:hidden"> Love
+        </h1>
+        <p class="text-white/70 text-base md:text-lg font-light max-w-2xl mx-auto mb-8 fade-up px-4" style="transition-delay: 200ms;" data-en="Celebrate the season with jewelry that is bold, joyful, and meticulously crafted." data-es="Celebra la temporada con joyas audaces, alegres y meticulosamente elaboradas.">
+            Celebrate the season with jewelry that is bold, joyful, and meticulously crafted.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 fade-up px-4" style="transition-delay: 300ms;">
+            <button class="btn-primary" data-en="Shop Signature" data-es="Compra Firma">Shop Signature</button>
+            <button class="btn-secondary" data-en="Custom Inquiry" data-es="Consulta Personalizada">Custom Inquiry</button>
+        </div>
+    </div>
+</section>
+
+<!-- BESPOKE SECTION -->
+<section id="bespoke" class="bg-[var(--dark-bg)] text-white py-16 md:py-24 px-4 md:px-12 overflow-hidden">
+    <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 mb-12 md:mb-20 items-end">
+            <div>
+                <span class="text-[var(--primary-color)] uppercase tracking-widest text-xs md:text-sm font-semibold mb-4 block" data-en="The Atelier" data-es="El Taller">The Atelier</span>
+                <h2 class="text-3xl md:text-5xl lg:text-6xl font-serif leading-tight" data-en="Mostly Custom, Uniquely Yours." data-es="Principalmente Personalizado, Únicamente Tuyo.">Mostly Custom,<br><span class="text-gray-500 italic">Uniquely Yours.</span></h2>
+            </div>
+            <div>
+                <p class="text-gray-400 text-base md:text-lg font-light leading-relaxed max-w-xl" data-en="While we offer a select number of signature pieces, the heart of our craft lies in bespoke creation. We bring your vision to life through precision cutting and artistic design." data-es="Aunque ofrecemos una cantidad selecta de piezas de firma, el corazón de nuestro oficio radica en la creación personalizada. Llevamos tu visión a la vida a través de corte de precisión y diseño artístico.">
+                    While we offer a select number of signature pieces, the heart of our craft lies in bespoke creation. We bring your vision to life through precision cutting and artistic design.
+                </p>
+                <a href="#" class="inline-block mt-6 md:mt-8 text-white border-b border-[var(--primary-color)] pb-1 hover:text-[var(--primary-color)] transition-all" data-en="Start a Custom Project →" data-es="Iniciar un Proyecto Personalizado →">Start a Custom Project →</a>
+            </div>
+        </div>
+
+        <!-- SIGNATURE COLLECTION -->
+        <div id="signature">
+            <div class="flex items-center justify-between mb-8">
+                <h3 class="text-2xl md:text-3xl font-serif" data-en="The Signature Collection" data-es="La Colección de Firma">The Signature Collection</h3>
+                <div class="flex gap-2">
+                    <button id="scrollLeft" class="p-2 md:p-3 border border-[rgba(212,175,55,0.3)] rounded-full hover:bg-[var(--primary-color)] hover:text-black transition-all">←</button>
+                    <button id="scrollRight" class="p-2 md:p-3 border border-[rgba(212,175,55,0.3)] rounded-full hover:bg-[var(--primary-color)] hover:text-black transition-all">→</button>
+                </div>
+            </div>
+
+            <div id="itemsContainer" class="flex gap-4 md:gap-6 overflow-x-auto hide-scrollbar pb-8 snap-x snap-mandatory">
+                <div class="min-w-[250px] md:min-w-[280px] lg:min-w-[320px] snap-start group cursor-pointer card-hover">
+                    <div class="aspect-[4/5] overflow-hidden bg-[var(--dark-secondary)] relative mb-4 rounded">
+                        <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=400&h=500&fit=crop" class="img-zoom w-full h-full object-cover opacity-90 group-hover:opacity-100">
+                        <div class="absolute bottom-4 left-4 bg-[var(--primary-color)] text-black px-3 py-1 text-xs uppercase tracking-widest font-semibold">Bestseller</div>
+                    </div>
+                    <h4 class="text-lg md:text-xl font-serif" data-en="Ethereal Band" data-es="Banda Etérea">Ethereal Band</h4>
+                    <p class="text-gray-500 text-sm mt-1">$350.00</p>
+                </div>
+
+                <div class="min-w-[250px] md:min-w-[280px] lg:min-w-[320px] snap-start group cursor-pointer card-hover">
+                    <div class="aspect-[4/5] overflow-hidden bg-[var(--dark-secondary)] relative mb-4 rounded">
+                        <img src="https://images.unsplash.com/photo-1587457294697-fb0ddf8f9046?w=400&h=500&fit=crop" class="img-zoom w-full h-full object-cover opacity-90 group-hover:opacity-100">
+                        <div class="absolute bottom-4 left-4 bg-[var(--primary-color)] text-black px-3 py-1 text-xs uppercase tracking-widest font-semibold">Bestseller</div>
+                    </div>
+                    <h4 class="text-lg md:text-xl font-serif" data-en="Luminous Glow" data-es="Brillo Luminoso">Luminous Glow</h4>
+                    <p class="text-gray-500 text-sm mt-1">$450.00</p>
+                </div>
+
+                <div class="min-w-[250px] md:min-w-[280px] lg:min-w-[320px] snap-start group cursor-pointer card-hover">
+                    <div class="aspect-[4/5] overflow-hidden bg-[var(--dark-secondary)] relative mb-4 rounded">
+                        <img src="https://images.unsplash.com/photo-1515562141207-6811bcb33ce9?w=400&h=500&fit=crop" class="img-zoom w-full h-full object-cover opacity-90 group-hover:opacity-100">
+                        <div class="absolute bottom-4 left-4 bg-[var(--primary-color)] text-black px-3 py-1 text-xs uppercase tracking-widest font-semibold">New</div>
+                    </div>
+                    <h4 class="text-lg md:text-xl font-serif" data-en="Eternal Rose" data-es="Rosa Eterna">Eternal Rose</h4>
+                    <p class="text-gray-500 text-sm mt-1">$520.00</p>
+                </div>
+
+                <div class="min-w-[250px] md:min-w-[280px] lg:min-w-[320px] snap-start group cursor-pointer card-hover">
+                    <div class="aspect-[4/5] overflow-hidden bg-[var(--dark-secondary)] relative mb-4 rounded">
+                        <img src="https://images.unsplash.com/photo-1599643478520-413ee5e999b2?w=400&h=500&fit=crop" class="img-zoom w-full h-full object-cover opacity-90 group-hover:opacity-100">
+                    </div>
+                    <h4 class="text-lg md:text-xl font-serif" data-en="Tennis Bracelet" data-es="Pulsera de Tenis">Tennis Bracelet</h4>
+                    <p class="text-gray-500 text-sm mt-1">$580.00</p>
+                </div>
+
+                <div class="min-w-[250px] md:min-w-[280px] lg:min-w-[320px] snap-start group cursor-pointer card-hover">
+                    <div class="aspect-[4/5] overflow-hidden bg-[var(--dark-secondary)] relative mb-4 rounded">
+                        <img src="https://images.unsplash.com/photo-1599643478516-b0a5006b3f54?w=400&h=500&fit=crop" class="img-zoom w-full h-full object-cover opacity-90 group-hover:opacity-100">
+                    </div>
+                    <h4 class="text-lg md:text-xl font-serif" data-en="Radiant Halo" data-es="Halo Radiante">Radiant Halo</h4>
+                    <p class="text-gray-500 text-sm mt-1">$720.00</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CATEGORIES SECTION -->
+<section class="py-16 md:py-24 px-4 md:px-12 bg-[var(--dark-bg)] overflow-hidden">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12 md:mb-20">
+            <span class="text-xs uppercase tracking-[0.3em] text-[var(--primary-color)] font-bold block mb-4" data-en="Explore Categories" data-es="Explorar Categorías">Explore Categories</span>
+            <h2 class="text-3xl md:text-5xl lg:text-6xl font-serif text-white leading-tight" data-en="Curated Collections" data-es="Colecciones Seleccionadas">Curated Collections</h2>
+            <div class="h-0.5 w-16 bg-gradient-to-r from-[var(--primary-color)] to-transparent mx-auto mt-6"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+            <!-- Category Card 1 -->
+            <a href="#" class="group relative overflow-hidden rounded-lg shadow-lg bg-[var(--dark-secondary)] h-64 md:h-80 card-hover">
+                <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&h=600&fit=crop" class="img-zoom w-full h-full object-cover opacity-75 group-hover:opacity-100">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                <div class="absolute bottom-6 left-6 z-10">
+                    <h3 class="text-2xl md:text-3xl font-serif text-white mb-2" data-en="Necklaces" data-es="Collares">Necklaces</h3>
+                    <p class="text-white/70 text-xs uppercase tracking-widest" data-en="Elegant Designs" data-es="Diseños Elegantes">Elegant Designs</p>
+                </div>
+            </a>
+
+            <!-- Category Card 2 -->
+            <a href="#" class="group relative overflow-hidden rounded-lg shadow-lg bg-[var(--dark-secondary)] h-64 md:h-80 card-hover">
+                <img src="https://images.unsplash.com/photo-1599643478918-048169988313?w=600&h=600&fit=crop" class="img-zoom w-full h-full object-cover opacity-75 group-hover:opacity-100">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                <div class="absolute bottom-6 left-6 z-10">
+                    <h3 class="text-2xl md:text-3xl font-serif text-white mb-2" data-en="Rings" data-es="Anillos">Rings</h3>
+                    <p class="text-white/70 text-xs uppercase tracking-widest" data-en="Timeless Pieces" data-es="Piezas Atemporales">Timeless Pieces</p>
+                </div>
+            </a>
+
+            <!-- Category Card 3 -->
+            <a href="#" class="group relative overflow-hidden rounded-lg shadow-lg bg-[var(--dark-secondary)] h-64 md:h-80 card-hover">
+                <img src="https://images.unsplash.com/photo-1599643478519-c90900f2fee7?w=600&h=600&fit=crop" class="img-zoom w-full h-full object-cover opacity-75 group-hover:opacity-100">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                <div class="absolute bottom-6 left-6 z-10">
+                    <h3 class="text-2xl md:text-3xl font-serif text-white mb-2" data-en="Bracelets" data-es="Pulseras">Bracelets</h3>
+                    <p class="text-white/70 text-xs uppercase tracking-widest" data-en="Sophisticated Style" data-es="Estilo Sofisticado">Sophisticated Style</p>
+                </div>
+            </a>
+
+            <!-- Category Card 4 -->
+            <a href="#" class="group relative overflow-hidden rounded-lg shadow-lg bg-[var(--dark-secondary)] h-64 md:h-80 card-hover">
+                <img src="https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?w=600&h=600&fit=crop" class="img-zoom w-full h-full object-cover opacity-75 group-hover:opacity-100">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                <div class="absolute bottom-6 left-6 z-10">
+                    <h3 class="text-2xl md:text-3xl font-serif text-white mb-2" data-en="Earrings" data-es="Aretes">Earrings</h3>
+                    <p class="text-white/70 text-xs uppercase tracking-widest" data-en="Statement Pairs" data-es="Pares Impactantes">Statement Pairs</p>
+                </div>
+            </a>
+
+            <!-- Category Card 5 -->
+            <a href="#" class="group relative overflow-hidden rounded-lg shadow-lg bg-[var(--dark-secondary)] h-64 md:h-80 card-hover">
+                <img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=600&h=600&fit=crop" class="img-zoom w-full h-full object-cover opacity-75 group-hover:opacity-100">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                <div class="absolute bottom-6 left-6 z-10">
+                    <h3 class="text-2xl md:text-3xl font-serif text-white mb-2" data-en="Timepieces" data-es="Relojes">Timepieces</h3>
+                    <p class="text-white/70 text-xs uppercase tracking-widest" data-en="Precision Crafted" data-es="Precisión Elaborada">Precision Crafted</p>
+                </div>
+            </a>
+
+            <!-- Category Card 6 -->
+            <a href="#" class="group relative overflow-hidden rounded-lg shadow-lg bg-[var(--dark-secondary)] h-64 md:h-80 card-hover">
+                <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&h=600&fit=crop" class="img-zoom w-full h-full object-cover opacity-75 group-hover:opacity-100">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                <div class="absolute bottom-6 left-6 z-10">
+                    <h3 class="text-2xl md:text-3xl font-serif text-white mb-2" data-en="Decorations" data-es="Decoraciones">Decorations</h3>
+                    <p class="text-white/70 text-xs uppercase tracking-widest" data-en="Crystal Artistry" data-es="Arte en Cristal">Crystal Artistry</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+<section id="signature-collection" class="text-white py-24 px-6 md:px-12">
+    <div class="max-w-[1600px] mx-auto">
+
+        <div class="text-center mb-20">
+            <span class="text-[var(--primary-color)] uppercase tracking-[0.4em] text-xs font-bold block mb-4">The Signature Twelve</span>
+            <h2 class="text-4xl md:text-6xl font-serif mb-6">Signature Collection</h2>
+            <p class="text-gray-400 font-light max-w-2xl mx-auto">Our exclusive twelve standard items, meticulously maintained in our atelier for those who seek timeless elegance.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16">
+
+            <div class="group relative flex flex-col bg-transparent">
+
+                <div class="relative aspect-[3/4] overflow-hidden bg-[#151515] cursor-pointer">
+                    <div class="absolute top-4 left-4 z-20">
+                <span class="text-[10px] uppercase tracking-[0.2em] bg-white/10 backdrop-blur-md text-white border border-white/20 px-3 py-1">
+                    Fine Jewelry
+                </span>
+                    </div>
+
+                    <img src="images/1.jpeg"
+                         alt="Product Front"
+                         class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out group-hover:opacity-0">
+
+                    <img src="images/1.1.jpeg"
+                         alt="Product Detail"
+                         class="absolute inset-0 w-full h-full object-cover opacity-0 scale-110 transition-all duration-1000 ease-in-out group-hover:opacity-100 group-hover:scale-100">
+
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                    <div class="absolute bottom-0 left-0 w-full p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-30">
+                        <button class="w-full bg-white text-black py-4 text-xs uppercase tracking-[0.2em] font-semibold hover:bg-[#8F3552] hover:text-white transition-colors duration-300">
+                            Add to Bag
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mt-6 flex flex-col space-y-2">
+                    <div class="flex justify-between items-start">
+                        <h3 class="font-serif text-xl text-white tracking-wide group-hover:text-[#D4AF37] transition-colors duration-300">
+                            Millenia Octagon
+                        </h3>
+                        <span class="text-white font-light tracking-wider">$350.00</span>
+                    </div>
+
+                    <p class="text-gray-500 text-sm font-light line-clamp-2 leading-relaxed">
+                        A masterclass in precision-cut crystals, featuring a rhodium-plated setting for a timeless shine.
+                    </p>
+
+                    <div class="pt-4 flex items-center justify-between border-t border-white/10 mt-2">
+                        <div class="flex items-center space-x-2">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                    </span>
+                            <span class="text-[10px] uppercase tracking-widest text-gray-400">
+                        8 Pieces in Stock
+                    </span>
+                        </div>
+                        <span class="text-[10px] uppercase tracking-widest text-[#D4AF37] font-medium">
+                    Signature Item
+                </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="group relative flex flex-col bg-transparent">
+
+                <div class="relative aspect-[3/4] overflow-hidden bg-[#151515] cursor-pointer">
+                    <div class="absolute top-4 left-4 z-20">
+                <span class="text-[10px] uppercase tracking-[0.2em] bg-white/10 backdrop-blur-md text-white border border-white/20 px-3 py-1">
+                    Fine Jewelry
+                </span>
+                    </div>
+
+                    <img src="images/2.jpeg"
+                         alt="Product Front"
+                         class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out group-hover:opacity-0">
+
+                    <img src="images/2.2.jpeg"
+                         alt="Product Detail"
+                         class="absolute inset-0 w-full h-full object-cover opacity-0 scale-110 transition-all duration-1000 ease-in-out group-hover:opacity-100 group-hover:scale-100">
+
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                    <div class="absolute bottom-0 left-0 w-full p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-30">
+                        <button class="w-full bg-white text-black py-4 text-xs uppercase tracking-[0.2em] font-semibold hover:bg-[#8F3552] hover:text-white transition-colors duration-300">
+                            Add to Bag
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mt-6 flex flex-col space-y-2">
+                    <div class="flex justify-between items-start">
+                        <h3 class="font-serif text-xl text-white tracking-wide group-hover:text-[#D4AF37] transition-colors duration-300">
+                            Millenia Octagon
+                        </h3>
+                        <span class="text-white font-light tracking-wider">$350.00</span>
+                    </div>
+
+                    <p class="text-gray-500 text-sm font-light line-clamp-2 leading-relaxed">
+                        A masterclass in precision-cut crystals, featuring a rhodium-plated setting for a timeless shine.
+                    </p>
+
+                    <div class="pt-4 flex items-center justify-between border-t border-white/10 mt-2">
+                        <div class="flex items-center space-x-2">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                    </span>
+                            <span class="text-[10px] uppercase tracking-widest text-gray-400">
+                        8 Pieces in Stock
+                    </span>
+                        </div>
+                        <span class="text-[10px] uppercase tracking-widest text-[#D4AF37] font-medium">
+                    Signature Item
+                </span>
+                    </div>
+                </div>
+            </div>
+            <div class="group relative flex flex-col bg-transparent">
+
+                <div class="relative aspect-[3/4] overflow-hidden bg-[#151515] cursor-pointer">
+                    <div class="absolute top-4 left-4 z-20">
+                <span class="text-[10px] uppercase tracking-[0.2em] bg-white/10 backdrop-blur-md text-white border border-white/20 px-3 py-1">
+                    Fine Jewelry
+                </span>
+                    </div>
+
+                    <img src="images/3.jpeg"
+                         alt="Product Front"
+                         class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out group-hover:opacity-0">
+
+                    <img src="images/3.3.jpeg"
+                         alt="Product Detail"
+                         class="absolute inset-0 w-full h-full object-cover opacity-0 scale-110 transition-all duration-1000 ease-in-out group-hover:opacity-100 group-hover:scale-100">
+
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                    <div class="absolute bottom-0 left-0 w-full p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-30">
+                        <button class="w-full bg-white text-black py-4 text-xs uppercase tracking-[0.2em] font-semibold hover:bg-[#8F3552] hover:text-white transition-colors duration-300">
+                            Add to Bag
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mt-6 flex flex-col space-y-2">
+                    <div class="flex justify-between items-start">
+                        <h3 class="font-serif text-xl text-white tracking-wide group-hover:text-[#D4AF37] transition-colors duration-300">
+                            Millenia Octagon
+                        </h3>
+                        <span class="text-white font-light tracking-wider">$350.00</span>
+                    </div>
+
+                    <p class="text-gray-500 text-sm font-light line-clamp-2 leading-relaxed">
+                        A masterclass in precision-cut crystals, featuring a rhodium-plated setting for a timeless shine.
+                    </p>
+
+                    <div class="pt-4 flex items-center justify-between border-t border-white/10 mt-2">
+                        <div class="flex items-center space-x-2">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                    </span>
+                            <span class="text-[10px] uppercase tracking-widest text-gray-400">
+                        8 Pieces in Stock
+                    </span>
+                        </div>
+                        <span class="text-[10px] uppercase tracking-widest text-[#D4AF37] font-medium">
+                    Signature Item
+                </span>
+                    </div>
+                </div>
+            </div>
+            <div class="group relative flex flex-col bg-transparent">
+
+                <div class="relative aspect-[3/4] overflow-hidden bg-[#151515] cursor-pointer">
+                    <div class="absolute top-4 left-4 z-20">
+                <span class="text-[10px] uppercase tracking-[0.2em] bg-white/10 backdrop-blur-md text-white border border-white/20 px-3 py-1">
+                    Fine Jewelry
+                </span>
+                    </div>
+
+                    <img src="images/4.jpeg"
+                         alt="Product Front"
+                         class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out group-hover:opacity-0">
+
+                    <img src="images/4.4.jpeg"
+                         alt="Product Detail"
+                         class="absolute inset-0 w-full h-full object-cover opacity-0 scale-110 transition-all duration-1000 ease-in-out group-hover:opacity-100 group-hover:scale-100">
+
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                    <div class="absolute bottom-0 left-0 w-full p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-30">
+                        <button class="w-full bg-white text-black py-4 text-xs uppercase tracking-[0.2em] font-semibold hover:bg-[#8F3552] hover:text-white transition-colors duration-300">
+                            Add to Bag
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mt-6 flex flex-col space-y-2">
+                    <div class="flex justify-between items-start">
+                        <h3 class="font-serif text-xl text-white tracking-wide group-hover:text-[#D4AF37] transition-colors duration-300">
+                            Millenia Octagon
+                        </h3>
+                        <span class="text-white font-light tracking-wider">$350.00</span>
+                    </div>
+
+                    <p class="text-gray-500 text-sm font-light line-clamp-2 leading-relaxed">
+                        A masterclass in precision-cut crystals, featuring a rhodium-plated setting for a timeless shine.
+                    </p>
+
+                    <div class="pt-4 flex items-center justify-between border-t border-white/10 mt-2">
+                        <div class="flex items-center space-x-2">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                    </span>
+                            <span class="text-[10px] uppercase tracking-widest text-gray-400">
+                        8 Pieces in Stock
+                    </span>
+                        </div>
+                        <span class="text-[10px] uppercase tracking-widest text-[#D4AF37] font-medium">
+                    Signature Item
+                </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="group relative flex flex-col bg-transparent">
+
+                <div class="relative aspect-[3/4] overflow-hidden bg-[#151515] cursor-pointer">
+                    <div class="absolute top-4 left-4 z-20">
+                <span class="text-[10px] uppercase tracking-[0.2em] bg-white/10 backdrop-blur-md text-white border border-white/20 px-3 py-1">
+                    Fine Jewelry
+                </span>
+                    </div>
+
+                    <img src="images/5.jpeg"
+                         alt="Product Front"
+                         class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out group-hover:opacity-0">
+
+                    <img src="images/5.5.jpeg"
+                         alt="Product Detail"
+                         class="absolute inset-0 w-full h-full object-cover opacity-0 scale-110 transition-all duration-1000 ease-in-out group-hover:opacity-100 group-hover:scale-100">
+
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                    <div class="absolute bottom-0 left-0 w-full p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-30">
+                        <button class="w-full bg-white text-black py-4 text-xs uppercase tracking-[0.2em] font-semibold hover:bg-[#8F3552] hover:text-white transition-colors duration-300">
+                            Add to Bag
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mt-6 flex flex-col space-y-2">
+                    <div class="flex justify-between items-start">
+                        <h3 class="font-serif text-xl text-white tracking-wide group-hover:text-[#D4AF37] transition-colors duration-300">
+                            Millenia Octagon
+                        </h3>
+                        <span class="text-white font-light tracking-wider">$350.00</span>
+                    </div>
+
+                    <p class="text-gray-500 text-sm font-light line-clamp-2 leading-relaxed">
+                        A masterclass in precision-cut crystals, featuring a rhodium-plated setting for a timeless shine.
+                    </p>
+
+                    <div class="pt-4 flex items-center justify-between border-t border-white/10 mt-2">
+                        <div class="flex items-center space-x-2">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                    </span>
+                            <span class="text-[10px] uppercase tracking-widest text-gray-400">
+                        8 Pieces in Stock
+                    </span>
+                        </div>
+                        <span class="text-[10px] uppercase tracking-widest text-[#D4AF37] font-medium">
+                    Signature Item
+                </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="group relative flex flex-col bg-transparent">
+
+                <div class="relative aspect-[3/4] overflow-hidden bg-[#151515] cursor-pointer">
+                    <div class="absolute top-4 left-4 z-20">
+                <span class="text-[10px] uppercase tracking-[0.2em] bg-white/10 backdrop-blur-md text-white border border-white/20 px-3 py-1">
+                    Fine Jewelry
+                </span>
+                    </div>
+
+                    <img src="images/5.jpeg"
+                         alt="Product Front"
+                         class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out group-hover:opacity-0">
+
+                    <img src="images/5.5.jpeg"
+                         alt="Product Detail"
+                         class="absolute inset-0 w-full h-full object-cover opacity-0 scale-110 transition-all duration-1000 ease-in-out group-hover:opacity-100 group-hover:scale-100">
+
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                    <div class="absolute bottom-0 left-0 w-full p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-30">
+                        <button class="w-full bg-white text-black py-4 text-xs uppercase tracking-[0.2em] font-semibold hover:bg-[#8F3552] hover:text-white transition-colors duration-300">
+                            Add to Bag
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mt-6 flex flex-col space-y-2">
+                    <div class="flex justify-between items-start">
+                        <h3 class="font-serif text-xl text-white tracking-wide group-hover:text-[#D4AF37] transition-colors duration-300">
+                            Millenia Octagon
+                        </h3>
+                        <span class="text-white font-light tracking-wider">$350.00</span>
+                    </div>
+
+                    <p class="text-gray-500 text-sm font-light line-clamp-2 leading-relaxed">
+                        A masterclass in precision-cut crystals, featuring a rhodium-plated setting for a timeless shine.
+                    </p>
+
+                    <div class="pt-4 flex items-center justify-between border-t border-white/10 mt-2">
+                        <div class="flex items-center space-x-2">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                    </span>
+                            <span class="text-[10px] uppercase tracking-widest text-gray-400">
+                        8 Pieces in Stock
+                    </span>
+                        </div>
+                        <span class="text-[10px] uppercase tracking-widest text-[#D4AF37] font-medium">
+                    Signature Item
+                </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="group relative flex flex-col bg-transparent">
+
+                <div class="relative aspect-[3/4] overflow-hidden bg-[#151515] cursor-pointer">
+                    <div class="absolute top-4 left-4 z-20">
+                <span class="text-[10px] uppercase tracking-[0.2em] bg-white/10 backdrop-blur-md text-white border border-white/20 px-3 py-1">
+                    Fine Jewelry
+                </span>
+                    </div>
+
+                    <img src="images/5.jpeg"
+                         alt="Product Front"
+                         class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out group-hover:opacity-0">
+
+                    <img src="images/5.5.jpeg"
+                         alt="Product Detail"
+                         class="absolute inset-0 w-full h-full object-cover opacity-0 scale-110 transition-all duration-1000 ease-in-out group-hover:opacity-100 group-hover:scale-100">
+
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                    <div class="absolute bottom-0 left-0 w-full p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-30">
+                        <button class="w-full bg-white text-black py-4 text-xs uppercase tracking-[0.2em] font-semibold hover:bg-[#8F3552] hover:text-white transition-colors duration-300">
+                            Add to Bag
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mt-6 flex flex-col space-y-2">
+                    <div class="flex justify-between items-start">
+                        <h3 class="font-serif text-xl text-white tracking-wide group-hover:text-[#D4AF37] transition-colors duration-300">
+                            Millenia Octagon
+                        </h3>
+                        <span class="text-white font-light tracking-wider">$350.00</span>
+                    </div>
+
+                    <p class="text-gray-500 text-sm font-light line-clamp-2 leading-relaxed">
+                        A masterclass in precision-cut crystals, featuring a rhodium-plated setting for a timeless shine.
+                    </p>
+
+                    <div class="pt-4 flex items-center justify-between border-t border-white/10 mt-2">
+                        <div class="flex items-center space-x-2">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                    </span>
+                            <span class="text-[10px] uppercase tracking-widest text-gray-400">
+                        8 Pieces in Stock
+                    </span>
+                        </div>
+                        <span class="text-[10px] uppercase tracking-widest text-[#D4AF37] font-medium">
+                    Signature Item
+                </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="group relative flex flex-col bg-transparent">
+
+                <div class="relative aspect-[3/4] overflow-hidden bg-[#151515] cursor-pointer">
+                    <div class="absolute top-4 left-4 z-20">
+                <span class="text-[10px] uppercase tracking-[0.2em] bg-white/10 backdrop-blur-md text-white border border-white/20 px-3 py-1">
+                    Fine Jewelry
+                </span>
+                    </div>
+
+                    <img src="images/5.jpeg"
+                         alt="Product Front"
+                         class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out group-hover:opacity-0">
+
+                    <img src="images/5.5.jpeg"
+                         alt="Product Detail"
+                         class="absolute inset-0 w-full h-full object-cover opacity-0 scale-110 transition-all duration-1000 ease-in-out group-hover:opacity-100 group-hover:scale-100">
+
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                    <div class="absolute bottom-0 left-0 w-full p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-30">
+                        <button class="w-full bg-white text-black py-4 text-xs uppercase tracking-[0.2em] font-semibold hover:bg-[#8F3552] hover:text-white transition-colors duration-300">
+                            Add to Bag
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mt-6 flex flex-col space-y-2">
+                    <div class="flex justify-between items-start">
+                        <h3 class="font-serif text-xl text-white tracking-wide group-hover:text-[#D4AF37] transition-colors duration-300">
+                            Millenia Octagon
+                        </h3>
+                        <span class="text-white font-light tracking-wider">$350.00</span>
+                    </div>
+
+                    <p class="text-gray-500 text-sm font-light line-clamp-2 leading-relaxed">
+                        A masterclass in precision-cut crystals, featuring a rhodium-plated setting for a timeless shine.
+                    </p>
+
+                    <div class="pt-4 flex items-center justify-between border-t border-white/10 mt-2">
+                        <div class="flex items-center space-x-2">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                    </span>
+                            <span class="text-[10px] uppercase tracking-widest text-gray-400">
+                        8 Pieces in Stock
+                    </span>
+                        </div>
+                        <span class="text-[10px] uppercase tracking-widest text-[#D4AF37] font-medium">
+                    Signature Item
+                </span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+<!-- ABOUT SECTION -->
+<section id="about" class="py-16 md:py-24 px-4 md:px-12 bg-[var(--dark-secondary)] overflow-hidden">
+    <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 items-center">
+            <div>
+                <img src="https://images.unsplash.com/photo-1582562376407-3346b1be7dee?w=600&h=600&fit=crop" alt="About Swarovski" class="rounded-lg shadow-lg w-full">
+            </div>
+            <div>
+                <span class="text-[var(--primary-color)] uppercase tracking-widest text-xs md:text-sm font-semibold mb-4 block" data-en="Our Heritage" data-es="Nuestro Legado">Our Heritage</span>
+                <h2 class="text-3xl md:text-5xl font-serif text-white mb-6 leading-tight" data-en="Masters of Light Since 1895" data-es="Maestros de la Luz desde 1895">Masters of Light Since 1895</h2>
+                <p class="text-gray-400 text-base md:text-lg font-light leading-relaxed mb-6" data-en="For over a century, Swarovski has been synonymous with precision cutting, innovative design, and unparalleled craftsmanship. Our commitment to excellence ensures every piece is a masterpiece." data-es="Durante más de un siglo, Swarovski ha sido sinónimo de corte de precisión, diseño innovador y artesanía incomparable. Nuestro compromiso con la excelencia asegura que cada pieza sea una obra maestra.">
+                    For over a century, Swarovski has been synonymous with precision cutting, innovative design, and unparalleled craftsmanship. Our commitment to excellence ensures every piece is a masterpiece.
+                </p>
+                <ul class="space-y-4 mb-8">
+                    <li class="flex items-start gap-3">
+                        <span class="text-[var(--primary-color)] mt-1">✓</span>
+                        <span class="text-gray-300" data-en="Premium quality materials sourced globally" data-es="Materiales de prima calidad de origen mundial">Premium quality materials sourced globally</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-[var(--primary-color)] mt-1">✓</span>
+                        <span class="text-gray-300" data-en="Expert artisans with decades of experience" data-es="Artesanos expertos con décadas de experiencia">Expert artisans with decades of experience</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-[var(--primary-color)] mt-1">✓</span>
+                        <span class="text-gray-300" data-en="Sustainable and ethical production practices" data-es="Prácticas de producción sostenibles y éticas">Sustainable and ethical production practices</span>
+                    </li>
+                </ul>
+                <button class="btn-primary" data-en="Learn More" data-es="Aprende Más">Learn More</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TESTIMONIALS SECTION -->
+<section class="py-16 md:py-24 px-4 md:px-12 bg-[var(--dark-bg)] overflow-hidden">
+    <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+            <span class="text-xs uppercase tracking-[0.3em] text-[var(--primary-color)] font-bold block mb-4" data-en="What Our Clients Say" data-es="Lo Que Dicen Nuestros Clientes">What Our Clients Say</span>
+            <h2 class="text-3xl md:text-5xl font-serif text-white" data-en="Testimonials" data-es="Testimonios">Testimonials</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+            <!-- Testimonial 1 -->
+            <div class="bg-[var(--dark-secondary)] p-6 md:p-8 rounded-lg card-hover">
+                <div class="flex gap-1 mb-4">
+                    <span class="text-[var(--primary-color)]">★</span>
+                    <span class="text-[var(--primary-color)]">★</span>
+                    <span class="text-[var(--primary-color)]">★</span>
+                    <span class="text-[var(--primary-color)]">★</span>
+                    <span class="text-[var(--primary-color)]">★</span>
+                </div>
+                <p class="text-gray-300 text-sm md:text-base leading-relaxed mb-6" data-en="Absolutely stunning! The craftsmanship is impeccable and my custom design exceeded all expectations." data-es="¡Absolutamente impresionante! La artesanía es impecable y mi diseño personalizado superó todas las expectativas.">"Absolutely stunning! The craftsmanship is impeccable and my custom design exceeded all expectations."</p>
+                <div class="pt-4 border-t border-[rgba(212,175,55,0.1)]">
+                    <p class="font-semibold text-white" data-en="Sarah Johnson" data-es="Sarah Johnson">Sarah Johnson</p>
+                    <p class="text-gray-500 text-sm" data-en="New York, USA" data-es="Nueva York, USA">New York, USA</p>
+                </div>
+            </div>
+
+            <!-- Testimonial 2 -->
+            <div class="bg-[var(--dark-secondary)] p-6 md:p-8 rounded-lg card-hover">
+                <div class="flex gap-1 mb-4">
+                    <span class="text-[var(--primary-color)]">★</span>
+                    <span class="text-[var(--primary-color)]">★</span>
+                    <span class="text-[var(--primary-color)]">★</span>
+                    <span class="text-[var(--primary-color)]">★</span>
+                    <span class="text-[var(--primary-color)]">★</span>
+                </div>
+                <p class="text-gray-300 text-sm md:text-base leading-relaxed mb-6" data-en="An investment in elegance. The attention to detail is remarkable. I will definitely order again." data-es="Una inversión en elegancia. La atención al detalle es notable. Definitivamente volveré a pedir.">"An investment in elegance. The attention to detail is remarkable. I will definitely order again."</p>
+                <div class="pt-4 border-t border-[rgba(212,175,55,0.1)]">
+                    <p class="font-semibold text-white" data-en="Maria García" data-es="Maria García">Maria García</p>
+                    <p class="text-gray-500 text-sm" data-en="Madrid, Spain" data-es="Madrid, España">Madrid, Spain</p>
+                </div>
+            </div>
+
+            <!-- Testimonial 3 -->
+            <div class="bg-[var(--dark-secondary)] p-6 md:p-8 rounded-lg card-hover">
+                <div class="flex gap-1 mb-4">
+                    <span class="text-[var(--primary-color)]">★</span>
+                    <span class="text-[var(--primary-color)]">★</span>
+                    <span class="text-[var(--primary-color)]">★</span>
+                    <span class="text-[var(--primary-color)]">★</span>
+                    <span class="text-[var(--primary-color)]">★</span>
+                </div>
+                <p class="text-gray-300 text-sm md:text-base leading-relaxed mb-6" data-en="Exceptional quality and premium service. Every interaction with the team was professional and delightful." data-es="Calidad excepcional y servicio premium. Cada interacción con el equipo fue profesional y deliciosa.">"Exceptional quality and premium service. Every interaction was delightful."</p>
+                <div class="pt-4 border-t border-[rgba(212,175,55,0.1)]">
+                    <p class="font-semibold text-white" data-en="David Chen" data-es="David Chen">David Chen</p>
+                    <p class="text-gray-500 text-sm" data-en="Hong Kong" data-es="Hong Kong">Hong Kong</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- NEWSLETTER SECTION -->
+<section class="py-16 md:py-24 px-4 md:px-12 bg-[var(--dark-secondary)] relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-r from-[rgba(212,175,55,0.05)] to-[rgba(212,175,55,0.02)]"></div>
+    <div class="max-w-3xl mx-auto relative z-10 text-center">
+        <span class="text-[var(--primary-color)] uppercase tracking-widest text-xs md:text-sm font-semibold mb-4 block" data-en="Stay Updated" data-es="Manténgase Actualizado">Stay Updated</span>
+        <h2 class="text-3xl md:text-5xl font-serif text-white mb-4" data-en="Join Our Exclusive List" data-es="Únase a Nuestra Lista Exclusiva">Join Our Exclusive List</h2>
+        <p class="text-gray-400 text-base md:text-lg mb-8" data-en="Be the first to know about new collections, exclusive offers, and special events." data-es="Sea el primero en saber sobre nuevas colecciones, ofertas exclusivas y eventos especiales.">Be the first to know about new collections, exclusive offers, and special events.</p>
+
+        <div class="flex flex-col sm:flex-row gap-3">
+            <input type="email" class="flex-1 px-4 md:px-6 py-3 md:py-4 bg-[var(--dark-bg)] border border-[rgba(212,175,55,0.3)] text-white placeholder-gray-500 rounded focus:outline-none focus:border-[var(--primary-color)] transition-colors" placeholder="Enter your email" data-placeholder-en="Enter your email" data-placeholder-es="Ingresa tu correo electrónico">
+            <button class="btn-primary px-6 md:px-8" data-en="Subscribe" data-es="Suscribirse">Subscribe</button>
+        </div>
+        <p class="text-gray-500 text-xs mt-4" data-en="We respect your privacy. Unsubscribe at any time." data-es="Respetamos tu privacidad. Puedes darte de baja en cualquier momento.">We respect your privacy. Unsubscribe at any time.</p>
+    </div>
+</section>
+
+<!-- BENEFITS SECTION -->
+<section class="py-16 md:py-24 px-4 md:px-12 bg-[var(--dark-bg)] overflow-hidden">
+    <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12 md:mb-20">
+            <span class="text-xs uppercase tracking-[0.3em] text-[var(--primary-color)] font-bold block mb-4" data-en="Why Choose Us" data-es="Por Qué Elegirnos">Why Choose Us</span>
+            <h2 class="text-3xl md:text-5xl font-serif text-white" data-en="Premium Service" data-es="Servicio Premium">Premium Service</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+            <!-- Benefit 1 -->
+            <div class="text-center card-hover">
+                <div class="mb-4">
+                    <div class="w-16 h-16 bg-[var(--dark-secondary)] rounded-lg flex items-center justify-center mx-auto border border-[rgba(212,175,55,0.2)]">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-[var(--primary-color)]">
+                            <path d="M12 2L15.09 8.26H22L17.82 12.44L19.91 18.7L12 14.52L4.09 18.7L6.18 12.44L2 8.26H8.91L12 2Z"></path>
+                        </svg>
+                    </div>
+                </div>
+                <h3 class="text-lg md:text-xl font-serif text-white mb-2" data-en="Premium Quality" data-es="Calidad Premium">Premium Quality</h3>
+                <p class="text-gray-400 text-sm" data-en="Every piece is crafted with the finest materials and impeccable attention to detail." data-es="Cada pieza está elaborada con los mejores materiales y atención impecable al detalle.">Every piece is crafted with the finest materials and impeccable attention to detail.</p>
+            </div>
+
+            <!-- Benefit 2 -->
+            <div class="text-center card-hover">
+                <div class="mb-4">
+                    <div class="w-16 h-16 bg-[var(--dark-secondary)] rounded-lg flex items-center justify-center mx-auto border border-[rgba(212,175,55,0.2)]">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-[var(--primary-color)]">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"></path>
+                            <path d="M12 6v6l5.25 3.15"></path>
+                        </svg>
+                    </div>
+                </div>
+                <h3 class="text-lg md:text-xl font-serif text-white mb-2" data-en="Fast Delivery" data-es="Entrega Rápida">Fast Delivery</h3>
+                <p class="text-gray-400 text-sm" data-en="We ensure your precious items arrive safely and on time, every time." data-es="Nos aseguramos de que tus artículos preciosos lleguen de forma segura y a tiempo.">We ensure your precious items arrive safely and on time, every time.</p>
+            </div>
+
+            <!-- Benefit 3 -->
+            <div class="text-center card-hover">
+                <div class="mb-4">
+                    <div class="w-16 h-16 bg-[var(--dark-secondary)] rounded-lg flex items-center justify-center mx-auto border border-[rgba(212,175,55,0.2)]">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-[var(--primary-color)]">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"></path>
+                            <path d="M9 13l2 2 4-4"></path>
+                        </svg>
+                    </div>
+                </div>
+                <h3 class="text-lg md:text-xl font-serif text-white mb-2" data-en="Lifetime Warranty" data-es="Garantía de por Vida">Lifetime Warranty</h3>
+                <p class="text-gray-400 text-sm" data-en="We stand behind our craftsmanship with a comprehensive lifetime guarantee." data-es="Respaldamos nuestras artesanía con una garantía integral de por vida.">We stand behind our craftsmanship with a comprehensive lifetime guarantee.</p>
+            </div>
+
+            <!-- Benefit 4 -->
+            <div class="text-center card-hover">
+                <div class="mb-4">
+                    <div class="w-16 h-16 bg-[var(--dark-secondary)] rounded-lg flex items-center justify-center mx-auto border border-[rgba(212,175,55,0.2)]">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-[var(--primary-color)]">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"></path>
+                            <path d="M12 6v12M6 12h12"></path>
+                        </svg>
+                    </div>
+                </div>
+                <h3 class="text-lg md:text-xl font-serif text-white mb-2" data-en="Custom Design" data-es="Diseño Personalizado">Custom Design</h3>
+                <p class="text-gray-400 text-sm" data-en="Create your own unique masterpiece with our expert design consultants." data-es="Crea tu propia obra maestra única con nuestros consultores de diseño expertos.">Create your own unique masterpiece with our expert design consultants.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-[#000000] border-t border-[rgba(212,175,55,0.1)] text-white py-12 md:py-16 px-4 md:px-12">
+    <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12 md:mb-16">
+            <!-- About -->
+            <div>
+                <h4 class="text-lg font-serif mb-6" data-en="About Swarovski" data-es="Acerca de Swarovski">About Swarovski</h4>
+                <ul class="space-y-3">
+                    <li><a href="#" class="text-gray-400 hover:text-[var(--primary-color)] transition-colors text-sm" data-en="Our Story" data-es="Nuestra Historia">Our Story</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-[var(--primary-color)] transition-colors text-sm" data-en="Sustainability" data-es="Sostenibilidad">Sustainability</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-[var(--primary-color)] transition-colors text-sm" data-en="Careers" data-es="Carreras">Careers</a></li>
+                </ul>
+            </div>
+
+            <!-- Collections -->
+            <div>
+                <h4 class="text-lg font-serif mb-6" data-en="Collections" data-es="Colecciones">Collections</h4>
+                <ul class="space-y-3">
+                    <li><a href="#" class="text-gray-400 hover:text-[var(--primary-color)] transition-colors text-sm" data-en="Jewelry" data-es="Joyas">Jewelry</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-[var(--primary-color)] transition-colors text-sm" data-en="Watches" data-es="Relojes">Watches</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-[var(--primary-color)] transition-colors text-sm" data-en="Decorations" data-es="Decoraciones">Decorations</a></li>
+                </ul>
+            </div>
+
+            <!-- Customer Care -->
+            <div>
+                <h4 class="text-lg font-serif mb-6" data-en="Customer Care" data-es="Servicio al Cliente">Customer Care</h4>
+                <ul class="space-y-3">
+                    <li><a href="#" class="text-gray-400 hover:text-[var(--primary-color)] transition-colors text-sm" data-en="Contact Us" data-es="Contáctenos">Contact Us</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-[var(--primary-color)] transition-colors text-sm" data-en="Shipping" data-es="Envío">Shipping</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-[var(--primary-color)] transition-colors text-sm" data-en="Returns" data-es="Devoluciones">Returns</a></li>
+                </ul>
+            </div>
+
+            <!-- Legal -->
+            <div>
+                <h4 class="text-lg font-serif mb-6" data-en="Legal" data-es="Legal">Legal</h4>
+                <ul class="space-y-3">
+                    <li><a href="#" class="text-gray-400 hover:text-[var(--primary-color)] transition-colors text-sm" data-en="Privacy Policy" data-es="Política de Privacidad">Privacy Policy</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-[var(--primary-color)] transition-colors text-sm" data-en="Terms of Service" data-es="Términos de Servicio">Terms of Service</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-[var(--primary-color)] transition-colors text-sm" data-en="Cookies" data-es="Cookies">Cookies</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="border-t border-[rgba(212,175,55,0.1)] pt-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <p class="text-gray-500 text-sm" data-en="© 2024 Swarovski. All rights reserved. Masters of Light since 1895." data-es="© 2024 Swarovski. Todos los derechos reservados. Maestros de la Luz desde 1895.">© 2024 Swarovski. All rights reserved. Masters of Light since 1895.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="text-gray-400 hover:text-[var(--primary-color)] transition-colors">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-[var(--primary-color)] transition-colors">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2s9 5 20 5a9.5 9.5 0 00-9-5.5c4.75 2.25 7-7 7-7"/></svg>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-[var(--primary-color)] transition-colors">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M12 4C7.03 4 3 8.03 3 13s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9zm0 16c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11z" fill="#000"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Language Management
+    let currentLang = 'en';
+
+    const langOptions = document.querySelectorAll('.lang-option');
+    const langBtn = document.getElementById('langBtn');
+
+    langOptions.forEach(option => {
+        option.addEventListener('click', (e) => {
+            e.preventDefault();
+            const lang = option.getAttribute('data-lang');
+            changeLang(lang);
+
+            // Remove active class from all and add to current
+            langOptions.forEach(opt => opt.classList.remove('active'));
+            option.classList.add('active');
+        });
+    });
+
+    function changeLang(lang) {
+        currentLang = lang;
+        document.documentElement.lang = lang;
+
+        // Update all translatable elements
+        document.querySelectorAll('[data-en]').forEach(element => {
+            const text = element.getAttribute(`data-${lang}`);
+            if (text) {
+                if (element.tagName === 'INPUT') {
+                    element.placeholder = text;
+                } else {
+                    element.textContent = text;
+                }
+            }
+        });
+
+        // Store language preference
+        localStorage.setItem('language', lang);
+    }
+
+    // Load saved language preference
+    window.addEventListener('DOMContentLoaded', () => {
+        const savedLang = localStorage.getItem('language') || 'en';
+        changeLang(savedLang);
+
+        // Update language button
+        const savedOption = document.querySelector(`.lang-option[data-lang="${savedLang}"]`);
+        if (savedOption) {
+            document.querySelectorAll('.lang-option').forEach(opt => opt.classList.remove('active'));
+            savedOption.classList.add('active');
+        }
+    });
+
+    // Mobile Menu
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+
+    mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('-translate-x-full');
+        mobileMenuOverlay.classList.toggle('hidden');
+        mobileMenuOverlay.classList.toggle('opacity-0');
+    });
+
+    mobileMenuOverlay.addEventListener('click', () => {
+        mobileMenu.classList.add('-translate-x-full');
+        mobileMenuOverlay.classList.add('hidden');
+        mobileMenuOverlay.classList.add('opacity-0');
+    });
+
+    document.querySelectorAll('#mobileMenu a').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.add('-translate-x-full');
+            mobileMenuOverlay.classList.add('hidden');
+            mobileMenuOverlay.classList.add('opacity-0');
+        });
+    });
+
+    // Carousel Scroll
+    const itemsContainer = document.getElementById('itemsContainer');
+    const scrollLeft = document.getElementById('scrollLeft');
+    const scrollRight = document.getElementById('scrollRight');
+
+    scrollLeft.addEventListener('click', () => {
+        itemsContainer.scrollBy({ left: -300, behavior: 'smooth' });
+    });
+
+    scrollRight.addEventListener('click', () => {
+        itemsContainer.scrollBy({ left: 300, behavior: 'smooth' });
+    });
+
+    // Intersection Observer for Fade-up Animation
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-up').forEach(element => {
+        observer.observe(element);
+    });
+
+    // Header Background on Scroll
+    window.addEventListener('scroll', () => {
+        const header = document.getElementById('header');
+        if (window.scrollY > 50) {
+            header.style.backgroundColor = 'rgba(10, 10, 10, 0.95)';
+            header.style.backdropFilter = 'blur(10px)';
+        } else {
+            header.style.backgroundColor = 'var(--dark-bg)';
+            header.style.backdropFilter = 'none';
+        }
+    });
+</script>
+
+</body>
+</html>
